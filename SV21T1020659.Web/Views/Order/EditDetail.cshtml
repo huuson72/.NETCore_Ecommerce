@@ -1,0 +1,92 @@
+﻿@model SV21T1020659.DomainModels.OrderDetail // Kiểm tra đúng model bạn truyền vào
+
+@* @{
+    Layout = null;
+}
+ *@
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form action="@Url.Action("EditDetail", "Order", new { orderId = Model.OrderID, productId = Model.ProductID })" method="post" class="form-horizontal">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Cập nhật chi tiết đơn hàng</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Tên mặt hàng:</label>
+                    <div class="col-sm-9">
+                        <!-- Hiển thị tên sản phẩm từ model -->
+                        <p class="form-control-static">@Model.ProductName</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Đơn vị tính:</label>
+                    <div class="col-sm-9">
+                        <!-- Hiển thị đơn vị tính -->
+                        <p class="form-control-static">@Model.Unit</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Số lượng:</label>
+                    <div class="col-sm-9">
+                        <!-- Hiển thị và cho phép chỉnh sửa số lượng -->
+                        <input type="number" name="Quantity" class="form-control" value="@Model.Quantity" required />
+                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Giá bán:</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="SalePrice" id="SalePrice"
+                               class="form-control number-separator"
+                               value="@Model.SalePrice.ToString("N0")" required />
+                        @Html.ValidationMessageFor(model => model.SalePrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-floppy-o"></i> Cập nhật
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Bỏ qua
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".number-separator").inputmask({
+            alias: "numeric",
+            groupSeparator: ",",
+            autoGroup: true,
+            digits: 0,
+            rightAlign: false,
+            removeMaskOnSubmit: true
+        });
+        $(".frmAddToCart").submit(function (e) {
+            e.preventDefault();
+            var url = $(this).prop("action");
+            var method = $(this).prop("method");
+            var data = $(this).serializeArray();
+            $.ajax({
+                url: url,
+                type: method,
+                data: data,
+                success: function (result) {
+                    if (result !== "") {
+                        alert(result);
+                    }
+                    else {
+                        showShoppingCart();
+                    }
+                }
+            });
+
+        })
+
+    })
+
+</script>

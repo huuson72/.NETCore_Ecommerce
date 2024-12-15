@@ -1,0 +1,17 @@
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\bin\Debug\net8.0\SV21T1020629.BusinessLayers.deps.json
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\bin\Debug\net8.0\SV21T1020629.BusinessLayers.dll
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\bin\Debug\net8.0\SV21T1020629.BusinessLayers.pdb
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\bin\Debug\net8.0\SV21T1020659.DataLayers.dll
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\bin\Debug\net8.0\SV21T1020659.DomainModels.dll
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\bin\Debug\net8.0\SV21T1020659.DataLayers.pdb
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\bin\Debug\net8.0\SV21T1020659.DomainModels.pdb
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\SV21T1020629.BusinessLayers.csproj.AssemblyReference.cache
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\SV21T1020629.BusinessLayers.GeneratedMSBuildEditorConfig.editorconfig
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\SV21T1020629.BusinessLayers.AssemblyInfoInputs.cache
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\SV21T1020629.BusinessLayers.AssemblyInfo.cs
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\SV21T1020629.BusinessLayers.csproj.CoreCompileInputs.cache
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\SV21T102.A5BB9DDE.Up2Date
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\SV21T1020629.BusinessLayers.dll
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\refint\SV21T1020629.BusinessLayers.dll
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\SV21T1020629.BusinessLayers.pdb
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020629.BusinessLayers\obj\Debug\net8.0\ref\SV21T1020629.BusinessLayers.dll

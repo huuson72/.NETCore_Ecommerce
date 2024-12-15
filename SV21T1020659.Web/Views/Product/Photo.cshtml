@@ -1,0 +1,214 @@
+﻿ @* @{
+}
+<div class="box box-primary">
+    <div class="box-body">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="#">
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Chọn file ảnh:</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="uploadPhoto" accept="image/*"
+                           onchange="document.getElementById('Photo').src = window.URL.createObjectURL(this.files[0])" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <input type="hidden" name="Photo" value="photo.png" />
+                    <img id="Photo" src="~/images/products/macbook.png" class="img img-bordered" style="width:200px" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Mô tả:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="Description" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Thứ tự hiển thị:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="DisplayOrder" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="IsHidden" value="true" /> Không hiển thị ảnh
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-floppy-o"></i>
+                        Lưu dữ liệu
+                    </button>
+                    <a href="~/Product/Edit/123" class="btn btn-default">
+                        Quay lại
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div> 
+
+ *@
+
+
+@* @using SV21T1020659.DomainModels
+
+<div class="box box-primary">
+    <div class="box-body">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="@Url.Action("Photo", new { id = Model.ProductID, method = Model.PhotoID == 0 ? "save" : "edit", photoId = Model.PhotoID })">
+
+            <!-- Thêm trường ẩn ProductID -->
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            <input type="hidden" name="PhotoID" value="@Model.PhotoID" />
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="uploadPhoto">Chọn file ảnh:</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="uploadPhoto" id="uploadPhoto" accept="image/*" onchange="document.getElementById('Photo').src = window.URL.createObjectURL(this.files[0])"  required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <img id="Photo" src="~/images/products/@Model.Photo" class="img img-bordered" style="width:200px" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Description">Mô tả:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="Description" id="Description" value="@Model.Description" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="DisplayOrder">Thứ tự hiển thị:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="DisplayOrder" id="DisplayOrder" value="@Model.DisplayOrder" min="1" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="IsHidden" value="true" @(Model.IsHidden ? "checked" : "") /> Không hiển thị ảnh
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-floppy-o"></i> Lưu dữ liệu
+                    </button>
+                    <a href="@Url.Action("Edit", "Product", new { id = Model.ProductID })" class="btn btn-default">Quay lại</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+ *@
+
+ @model SV21T1020659.DomainModels.ProductPhoto
+
+<div class="box box-primary">
+    <div class="box-body">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data"
+              action="~/Product/Photo/@Model.ProductID?method=save&photoId=@Model.PhotoID">
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            <input type="hidden" name="PhotoID" value="@Model.PhotoID" />
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="uploadPhoto">Chọn file ảnh:</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="uploadPhoto" id="uploadPhoto" accept="image/*"
+                           onchange="previewImage(this)" />
+                    @Html.ValidationMessage("uploadPhoto", "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Hiển thị ảnh đã chọn hoặc ảnh cũ nếu chưa chọn -->
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <img id="PhotoPreview"
+                         src="~/images/products/@(string.IsNullOrEmpty(Model.Photo) ? "noproduct.jpg" : Model.Photo)"
+                         class="img img-bordered"
+                         style="width:100px;" />
+
+                    <!-- Debug thêm giá trị của Model.Photo -->
+                    <p>Ảnh hiện tại: @Model.Photo</p>
+
+
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Description">Mô tả:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="Description" id="Description" value="@Model.Description" />
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="DisplayOrder">Thứ tự hiển thị:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="DisplayOrder" id="DisplayOrder" value="@Model.DisplayOrder" />
+                    @Html.ValidationMessage("DisplayOrder", "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="IsHidden" id="IsHiddenCheckbox" value="true"
+                            @(Model.IsHidden ? "checked" : "") />
+                            Không hiển thị ảnh
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-floppy-o"></i> Lưu dữ liệu
+                    </button>
+                    <a href="~/Product/Edit/@Model.ProductID" class="btn btn-default">Quay lại</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    // Hàm xử lý khi người dùng chọn ảnh mới
+    function previewImage(input) {
+        var file = input.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('PhotoPreview').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

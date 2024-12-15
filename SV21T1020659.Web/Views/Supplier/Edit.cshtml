@@ -1,0 +1,76 @@
+﻿@model Supplier
+@{
+
+}
+<div class="box box-primary">
+    <div class="box-body">
+        <form action="~/Supplier/Save" method="post">
+            <input type="hidden" name="@nameof(Model.SupplierID)" value="@Model.SupplierID" />
+            <div class="form-group">
+                <label>Tên nhà cung cấp:</label>
+                <input name="@nameof(Model.SupplierName)"
+                       value="@Model.SupplierName"
+                    type="text" class="form-control" autofocus />
+                @Html.ValidationMessage(nameof(Model.SupplierName))
+            </div>
+            <div class="form-group">
+                <label>Tên công ty :</label>
+                <input name="@nameof(Model.ContactName)"
+                       value="@Model.ContactName"
+                    type="text" class="form-control" />
+                @Html.ValidationMessage(nameof(Model.ContactName))
+            </div>
+         
+            <div class="form-group">
+                <label>Email:</label>
+                <input 
+                    name="@nameof(Model.Email)"
+                    value="@Model.Email"
+                    type="email" class="form-control" />
+                @Html.ValidationMessage(nameof(Model.Email))
+            </div>
+            <div class="form-group">
+                <label>Địa chỉ:</label>
+                <input 
+                    name="@nameof(Model.Address)"
+                    value="@Model.Address"
+                    type="text" class="form-control" />
+                @Html.ValidationMessage(nameof(Model.Address))
+            </div>
+            <div class="form-group">
+                <label>Tỉnh thành:</label>
+                <select class="form-control select2" name="@nameof(Model.Province)">
+                    <option value=""> -- Chọn tỉnh thành -- </option>
+                    @foreach (var item in CommonDataService.ListOfProvinces())
+                    {
+                        if (item.ProvinceName == Model.Province)
+                        {
+                            <option value="@item.ProvinceName" selected>@item.ProvinceName</option>
+                        }
+                        else
+                        {
+                            <option value="@item.ProvinceName">@item.ProvinceName</option>
+                        }
+                    }
+
+
+                </select>
+                @Html.ValidationMessage(nameof(Model.Province))
+            </div>
+            
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-floppy-o"></i>Lưu dữ liệu
+                </button>
+                <a href="~/Supplier" class="btn btn-default">
+                    Quay lại
+                </a>
+            </div>
+
+            <!-- <div class="checkbox">
+                     <label><input type="checkbox"> Remember me</label>
+                 </div>
+                 <button type="submit" class="btn btn-default">Submit</button> -->
+        </form>
+    </div>
+</div>

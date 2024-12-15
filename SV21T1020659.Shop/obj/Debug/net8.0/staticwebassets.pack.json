@@ -1,0 +1,585 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SV21T1020659.Shop.bundle.scp.css",
+      "PackagePath": "staticwebassets\\SV21T1020659.Shop.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\css\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\css\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\css\\normalize.css",
+      "PackagePath": "staticwebassets\\css\\normalize.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\css\\vendor.css",
+      "PackagePath": "staticwebassets\\css\\vendor.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\banner-1.jpg",
+      "PackagePath": "staticwebassets\\images\\banner-1.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\banner-ad-1.jpg",
+      "PackagePath": "staticwebassets\\images\\banner-ad-1.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\banner-ad-2.jpg",
+      "PackagePath": "staticwebassets\\images\\banner-ad-2.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\banner-ad-3.jpg",
+      "PackagePath": "staticwebassets\\images\\banner-ad-3.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\banner-newsletter.jpg",
+      "PackagePath": "staticwebassets\\images\\banner-newsletter.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\banner-onlineapp.png",
+      "PackagePath": "staticwebassets\\images\\banner-onlineapp.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\banner4.png",
+      "PackagePath": "staticwebassets\\images\\banner4.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\bannerEcommerce.png",
+      "PackagePath": "staticwebassets\\images\\bannerEcommerce.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\bannerEcommerce2.png",
+      "PackagePath": "staticwebassets\\images\\bannerEcommerce2.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\category-thumb-1.jpg",
+      "PackagePath": "staticwebassets\\images\\category-thumb-1.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\category-thumb-2.jpg",
+      "PackagePath": "staticwebassets\\images\\category-thumb-2.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\category-thumb-3.jpg",
+      "PackagePath": "staticwebassets\\images\\category-thumb-3.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\category-thumb-4.jpg",
+      "PackagePath": "staticwebassets\\images\\category-thumb-4.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\category-thumb-5.jpg",
+      "PackagePath": "staticwebassets\\images\\category-thumb-5.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\category-thumb-6.jpg",
+      "PackagePath": "staticwebassets\\images\\category-thumb-6.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\category-thumb-7.jpg",
+      "PackagePath": "staticwebassets\\images\\category-thumb-7.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\category-thumb-8.jpg",
+      "PackagePath": "staticwebassets\\images\\category-thumb-8.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\hslogo.png",
+      "PackagePath": "staticwebassets\\images\\hslogo.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\img-app-store.png",
+      "PackagePath": "staticwebassets\\images\\img-app-store.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\img-google-play.png",
+      "PackagePath": "staticwebassets\\images\\img-google-play.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\img-login.jpg",
+      "PackagePath": "staticwebassets\\images\\img-login.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\logo.svg",
+      "PackagePath": "staticwebassets\\images\\logo.svg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\post-thumbnail-1.jpg",
+      "PackagePath": "staticwebassets\\images\\post-thumbnail-1.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\post-thumbnail-2.jpg",
+      "PackagePath": "staticwebassets\\images\\post-thumbnail-2.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\post-thumbnail-3.jpg",
+      "PackagePath": "staticwebassets\\images\\post-thumbnail-3.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-large-1.jpg",
+      "PackagePath": "staticwebassets\\images\\product-large-1.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-large-2.jpg",
+      "PackagePath": "staticwebassets\\images\\product-large-2.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-large-3.jpg",
+      "PackagePath": "staticwebassets\\images\\product-large-3.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-large-4.jpg",
+      "PackagePath": "staticwebassets\\images\\product-large-4.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-large-5.jpg",
+      "PackagePath": "staticwebassets\\images\\product-large-5.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-1.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-1.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-10.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-10.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-11.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-11.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-12.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-12.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-13.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-13.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-14.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-14.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-15.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-15.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-16.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-16.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-17.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-17.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-18.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-18.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-19.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-19.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-2.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-2.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-20.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-20.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-21.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-21.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-22.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-22.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-23.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-23.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-24.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-24.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-25.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-25.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-26.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-26.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-27.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-27.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-28.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-28.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-29.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-29.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-3.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-3.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-30.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-30.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-4.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-4.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-5.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-5.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-6.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-6.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-7.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-7.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-8.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-8.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumb-9.png",
+      "PackagePath": "staticwebassets\\images\\product-thumb-9.png"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumbnail-1.jpg",
+      "PackagePath": "staticwebassets\\images\\product-thumbnail-1.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumbnail-2.jpg",
+      "PackagePath": "staticwebassets\\images\\product-thumbnail-2.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumbnail-3.jpg",
+      "PackagePath": "staticwebassets\\images\\product-thumbnail-3.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumbnail-4.jpg",
+      "PackagePath": "staticwebassets\\images\\product-thumbnail-4.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\product-thumbnail-5.jpg",
+      "PackagePath": "staticwebassets\\images\\product-thumbnail-5.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\products\\product1.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\product1.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\reviewer-1.jpg",
+      "PackagePath": "staticwebassets\\images\\reviewer-1.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\reviewer-2.jpg",
+      "PackagePath": "staticwebassets\\images\\reviewer-2.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\reviewer-3.jpg",
+      "PackagePath": "staticwebassets\\images\\reviewer-3.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\sample-image-2.jpg",
+      "PackagePath": "staticwebassets\\images\\sample-image-2.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\images\\sample-image.jpg",
+      "PackagePath": "staticwebassets\\images\\sample-image.jpg"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\js\\jquery-1.11.0.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-1.11.0.min.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\js\\modernizr.js",
+      "PackagePath": "staticwebassets\\js\\modernizr.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\js\\plugins.js",
+      "PackagePath": "staticwebassets\\js\\plugins.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.Shop\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SV21T1020659.Shop.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SV21T1020659.Shop.props",
+      "PackagePath": "build\\SV21T1020659.Shop.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SV21T1020659.Shop.props",
+      "PackagePath": "buildMultiTargeting\\SV21T1020659.Shop.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SV21T1020659.Shop.props",
+      "PackagePath": "buildTransitive\\SV21T1020659.Shop.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

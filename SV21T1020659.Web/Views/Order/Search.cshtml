@@ -1,0 +1,115 @@
+﻿@model SV21T1020659.Web.Models.OrderSearchResult
+
+@{
+    Layout = null;
+}
+
+<p style="margin: 10px 0 10px 0;">
+    Có <strong>@Model.RowCount</strong> đơn hàng trong tổng số <strong>@Model.PageCount</strong> trang
+</p>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr class="bg-primary">
+                <th>Khách hàng</th>
+                <th>Ngày lập</th>
+                <th>Nhân viên phụ trách</th>
+                <th>Thời điểm duyệt</th>
+                <th>Người giao hàng</th>
+                <th>Ngày nhận giao hàng</th>
+                <th>Thời điểm kết thúc</th>
+                <th>Trạng thái</th>
+                <th style="width: 40px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Data.Count == 0)
+            {
+                <tr>
+                    <td colspan="9" class="text-center">Không tìm thấy đơn hàng nào</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var item in Model.Data)
+                {
+                    <tr>
+                        <td>@item.CustomerName</td>
+                        <td>@item.OrderTime.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.EmployeeName</td>
+                        <td>@item.AcceptTime?.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.ShipperName</td>
+                        <td>@item.ShippedTime?.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.FinishedTime?.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.StatusDescription</td>
+                        <td>
+                            <a href="~/Order/Details/@item.OrderID" class="btn btn-info btn-xs">
+                                <i class="glyphicon glyphicon-th-list"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center">
+    <ul class="pagination">
+        <!-- Nút Quay lại -->
+        <li @if (Model.Page == 1)
+        {
+            <text>class="disabled"</text>
+        }>
+            <a href="javascript:;" onclick="doSearch(@(Model.Page - 1))">Quay lại</a>
+        </li>
+
+        <!-- Hiển thị trang đầu tiên nếu không phải trang đầu -->
+        @if (Model.Page > 3)
+        {
+            <li>
+                <a href="javascript:;" onclick="doSearch(1)">1</a>
+            </li>
+            <li class="disabled">
+                <span>...</span>
+            </li>
+        }
+
+        <!-- Hiển thị các trang gần trang hiện tại -->
+        @for (int p = Math.Max(1, Model.Page - 2); p <= Math.Min(Model.Page + 2, Model.PageCount); p++)
+        {
+            if (p == Model.Page)
+            {
+                <li class="active">
+                    <a href="#">@p</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="javascript:;" onclick="doSearch(@p)">@p</a>
+                </li>
+            }
+        }
+
+        <!-- Hiển thị trang cuối nếu không phải trang cuối -->
+        @if (Model.Page < Model.PageCount - 2)
+        {
+            <li class="disabled">
+                <span>...</span>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="doSearch(@Model.PageCount)">@Model.PageCount</a>
+            </li>
+        }
+
+        <!-- Nút Tiếp theo -->
+        <li @if (Model.Page == Model.PageCount)
+        {
+            <text>class="disabled"</text>
+        }>
+            <a href="javascript:;" onclick="doSearch(@(Model.Page + 1))">Tiếp theo</a>
+        </li>
+    </ul>
+</div>
