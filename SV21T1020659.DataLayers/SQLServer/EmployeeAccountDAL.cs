@@ -62,5 +62,29 @@ namespace SV21T1020659.DataLayers.SQLServer
             }
         }
 
+        public bool IsEmailExist(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Register(UserAccount account)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Register(CustomerRegisterViewModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateProfile(int userId, string displayName, string email, string phoneNumber, string address, string province)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateProfile(int customerId, string displayName, string email, string phoneNumber, string address, string province, string? photoFileName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

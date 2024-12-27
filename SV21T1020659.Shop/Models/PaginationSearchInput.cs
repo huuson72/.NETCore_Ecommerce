@@ -1,4 +1,4 @@
-﻿namespace SV21T1020659.Web.Models
+﻿namespace SV21T1020659.Shop.Models
 {  /// <summary>
    /// Lưu giữ các thông tin đầu vào để sử dụng cho các chức năng tìm kiếm và hiển thị dữ liệu dưới dạng phân trang
    /// </summary>
@@ -16,5 +16,9 @@
         /// Chuỗi giá trị cần tìm kiếm
         /// </summary>
         public string SearchValue { get; set; } = "";
+        /// <summary>
+        /// ID danh mục sản phẩm
+        /// </summary>
+        public int CategoryID { get; set; } = 0;
     }
 }

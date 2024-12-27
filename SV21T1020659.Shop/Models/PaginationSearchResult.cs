@@ -1,6 +1,6 @@
 ﻿using SV21T1020659.DomainModels;
 
-namespace SV21T1020659.Web.Models
+namespace SV21T1020659.Shop.Models
 {
     public abstract class PaginationSearchResult
     {

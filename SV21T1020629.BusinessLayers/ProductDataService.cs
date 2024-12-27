@@ -159,6 +159,15 @@ namespace SV21T1020659.BusinessLayers
         }
 
         /// <summary>
+        /// Lấy danh sách ảnh liên quan theo mã sản phẩm
+        /// </summary>
+        public static List<ProductPhoto> GetPhotosByProductId(int productId)
+        {
+            return productDB.GetPhotosByProductId(productId);
+        }
+
+
+        /// <summary>
         /// Thêm mới ảnh cho mặt hàng
         /// </summary>
         public static long AddProductPhoto(ProductPhoto data)

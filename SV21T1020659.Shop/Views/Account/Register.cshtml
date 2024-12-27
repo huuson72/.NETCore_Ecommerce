@@ -1,0 +1,195 @@
+﻿@model SV21T1020659.DomainModels.CustomerRegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Đảm bảo body chiếm ít nhất chiều cao của cửa sổ */
+            color: #fff;
+        }
+
+        .register-container {
+            background: #fff;
+            color: #333;
+            padding: 1.5rem; /* Giảm padding để làm thẻ ngắn hơn */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px; /* Giảm chiều rộng tối đa */
+            box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước của thẻ */
+        }
+
+            .register-container h2 {
+                margin-bottom: 0.8rem;
+                font-size: 24px;
+                text-align: center;
+            }
+
+        .form-group {
+            margin-bottom: 1rem; /* Tăng khoảng cách giữa các nhóm trường */
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.4rem;
+                font-weight: bold;
+            }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px; /* Khoảng cách giữa các ô input theo chiều ngang */
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group {
+            flex: 1;
+            margin-right: 7px; /* Tạo khoảng cách giữa các input */
+        }
+
+            .form-group input, .form-group select {
+                width: 100%; /* Đảm bảo mỗi ô input chiếm 100% chiều rộng của .form-group */
+                padding: 8px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                outline: none;
+                transition: border-color 0.3s;
+            }
+
+                .form-group input:focus, .form-group select:focus {
+                    border-color: #2575fc;
+                }
+
+        .btn-primary {
+            background: #2575fc;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+            .btn-primary:hover {
+                background: #1e5fbb;
+            }
+
+        .register-container a {
+            display: block;
+            margin-top: 1rem;
+            text-align: center;
+            color: #2575fc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+            .register-container a:hover {
+                text-decoration: underline;
+            }
+
+        .text-danger {
+            color: red;
+            font-size: 0.875rem; /* Kích thước chữ phù hợp */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Đăng ký tài khoản</h2>
+        <form asp-action="Register" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="CustomerName">Tên khách hàng</label>
+                <input type="text" asp-for="CustomerName" placeholder="Tên khách hàng" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" asp-for="Email" placeholder="Nhập email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="Phone">Số điện thoại</label>
+                    <input type="text" asp-for="Phone" placeholder="Số điện thoại" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Password">Mật khẩu</label>
+                    <input type="password" asp-for="Password" placeholder="Mật khẩu" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="ConfirmPassword">Xác nhận mật khẩu</label>
+                    <input type="password" asp-for="ConfirmPassword" placeholder="Xác nhận mật khẩu" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Address">Địa chỉ</label>
+                <input type="text" asp-for="Address" placeholder="Địa chỉ" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Province" class="font-weight-bold" style="font-size: 1.1rem;">Tỉnh thành</label>
+                <select name="Province"
+                        asp-for="Province"
+                        asp-items="@(new SelectList(ViewBag.Provinces as List<SV21T1020659.DomainModels.Province>, "ProvinceName", "ProvinceName"))"
+                        class="form-control select2" style="font-size: 1rem; padding: 0.8rem;">
+                    <option value="">-- Chọn tỉnh thành --</option>
+                </select>
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+
+
+
+
+            <button type="submit" class="btn-primary">Đăng ký</button>
+        </form>
+        <a href="~/Account/Login">Đã có tài khoản? Đăng nhập ngay</a>
+    </div>
+</body>
+</html>
+<script src="@Url.Content("~/js/jquery-1.11.0.min.js")"></script> <!-- jQuery cũ -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery mới -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> <!-- Select2 -->
+
+<script>
+    var jq3 = jQuery.noConflict(true); // Tách jQuery 3.6.0
+
+    jq3(document).ready(function () {
+        console.log(typeof jq3.fn.select2); // Kiểm tra Select2 đã được gắn
+        jq3('select[name="Province"]').select2({
+            placeholder: "-- Chọn tỉnh thành --",
+            allowClear: true
+        });
+    });
+</script>

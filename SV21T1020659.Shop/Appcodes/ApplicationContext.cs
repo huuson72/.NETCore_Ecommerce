@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace SV21T1020659.Web.Appcodes
+namespace SV21T1020659.Shop.Appcodes
 {
     public static class ApplicationContext
     {

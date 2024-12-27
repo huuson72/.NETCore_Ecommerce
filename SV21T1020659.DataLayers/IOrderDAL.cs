@@ -4,6 +4,8 @@ namespace SV21T1020659.DataLayers
 {
     public interface IOrderDAL
     {
+
+        public List<Order> GetOrdersByCustomerId(int customerId);
         /// <summary>
         /// Tìm kiếm và lấy danh sách đơn hàng dưới dạng phân trang
         /// </summary>
@@ -52,5 +54,6 @@ namespace SV21T1020659.DataLayers
         /// Xóa 1 mặt hàng ra khỏi đơn hàng
         /// </summary>
         bool DeleteDetail(int orderID, int productID);
+        public int AddOrderCustomer(Order data);
     }
 }

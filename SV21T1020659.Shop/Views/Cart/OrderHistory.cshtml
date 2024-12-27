@@ -1,0 +1,45 @@
+﻿@model List<SV21T1020659.DomainModels.Order>
+
+<div class="container mt-4">
+    <h2 class="text-center">Lịch sử đơn hàng</h2>
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-warning text-center">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mã đơn hàng</th>   
+                    <th>Trạng thái</th>
+                  
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.OrderID</td>
+                     
+                        <td>@order.StatusDescription</td>
+                      
+                        <td>
+                            <a href="@Url.Action("Details", "Cart", new { orderId = order.OrderID })"
+                               class="btn btn-primary btn-sm">Xem chi tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-center">Bạn chưa có đơn hàng nào!</p>
+    }
+</div>

@@ -1,0 +1,168 @@
+﻿@{
+    ViewData["Title"] = "Giới thiệu";
+}
+
+@section NoBanner {
+    <!-- Tắt banner -->
+}
+
+<div class="container py-5" style="padding-top: 140px;">
+    <!-- Tiêu đề -->
+    <h3 class="text-center mb-5 display-4 font-weight-bold text-uppercase">Về chúng tôi</h3>
+
+    <!-- Phần giới thiệu công ty -->
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <h4 class="mb-3">Chúng tôi là ai?</h4>
+            <p class="lead">Chào mừng đến với HStore, nơi bạn có thể tìm thấy các sản phẩm điện tử tốt nhất với giá cả hợp lý. Chúng tôi chuyên cung cấp các sản phẩm từ những thương hiệu nổi tiếng và cam kết đem lại cho khách hàng trải nghiệm mua sắm trực tuyến tuyệt vời.</p>
+            <p class="lead">Với đội ngũ nhân viên giàu kinh nghiệm, chúng tôi không chỉ cung cấp sản phẩm chất lượng mà còn đảm bảo dịch vụ khách hàng luôn được đặt lên hàng đầu.</p>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <img src="@Url.Content("~/images/laptop_aboutus.png")" alt="HStore Team" class="img-fluid rounded shadow-lg" style="height:400px; width:700px"  />
+        </div>
+    </div>
+
+    <!-- Sứ mệnh và Tầm nhìn -->
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-lg border-light d-flex flex-column justify-content-between" style="min-height: 400px;">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-center mb-3">Sứ Mệnh</h5>
+                    <p class="card-text">Chúng tôi cam kết cung cấp các sản phẩm điện tử chất lượng cao từ các thương hiệu uy tín, giúp khách hàng dễ dàng tiếp cận công nghệ mới nhất với giá cả phải chăng.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle text-success"></i> Cung cấp sản phẩm chính hãng từ các thương hiệu lớn.</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Liên tục cải tiến chất lượng dịch vụ và sản phẩm.</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Đảm bảo hỗ trợ khách hàng 24/7.</li>
+                    </ul>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-lg border-light d-flex flex-column justify-content-between" style="min-height: 400px;">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-center mb-3">Tầm Nhìn</h5>
+                    <p class="card-text">Mục tiêu của HStore là trở thành một trong những nhà cung cấp điện tử trực tuyến hàng đầu tại Việt Nam, tạo dựng lòng tin và sự hài lòng của khách hàng.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle text-primary"></i> Mở rộng hệ thống phân phối đến 64 tỉnh thành.</li>
+                        <li><i class="bi bi-check-circle text-primary"></i> Đạt mức độ hài lòng khách hàng 95% vào năm 2025.</li>
+                        <li><i class="bi bi-check-circle text-primary"></i> Phát triển cộng đồng công nghệ uy tín.</li>
+                    </ul>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Các sản phẩm tốt nhất -->
+    <h3 class="text-center mb-4 text-uppercase">Sản phẩm tốt nhất của chúng tôi</h3>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-light">
+                <img src="@Url.Content("~/images/products/macbookpro.png")" class="card-img-top" alt="Product 1" style="height:280px">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Macbook Pro</h5>
+                    <p class="text-center">Một trong những laptop mỏng nhẹ và hiệu suất cao, lý tưởng cho công việc văn phòng và giải trí.</p>
+                    <a href="http://localhost:48588/Home/Details/1831" class="btn btn-primary d-block">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-light">
+                <img src="@Url.Content("~/images/products/macbook.jpg")" class="card-img-top" alt="Product 2" style="height:280px">
+                <div class="card-body">
+                    <h5 class="card-title text-center">MacBook Air</h5>
+                    <p class="text-center">Máy tính xách tay chuyên nghiệp với màn hình sắc nét, tinh tế gọn nhẹ, phù hợp với mọi người.</p>
+                    <a href="http://localhost:48588/Home/Details/1832" class="btn btn-primary d-block">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-light">
+                <img src="@Url.Content("~/images/products/product1.jpg")" class="card-img-top" alt="Product 3" style="height:280px">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Lenovo Legion 5</h5>
+                    <p class="text-center">Laptop gaming mạnh mẽ, lý tưởng cho cả công việc và giải trí. Với hiệu năng vô cùng vượt trội.</p>
+                    <a href="http://localhost:48588/Home/Details/1833" class="btn btn-primary d-block">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</div>
+
+<style>
+    body {
+        padding-top: 140px; /* Tăng khoảng cách để header không che nội dung */
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .card-body {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-text {
+        margin-bottom: 15px;
+        line-height: 1.6; /* Tăng khoảng cách dòng */
+    }
+
+   
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-text {
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    ul.list-unstyled {
+        margin-top: 10px;
+        padding-left: 20px;
+    }
+
+        ul.list-unstyled li {
+            margin-bottom: 10px;
+        }
+
+    .bi-check-circle {
+        margin-right: 8px;
+    }
+
+    header {
+        height: 120px; /* Đặt chiều cao cố định */
+        padding: 10px 20px;
+        
+        position: fixed;
+        width: 100%;
+        z-index: 1030; /* Đảm bảo header luôn trên các nội dung khác */
+        border: none; /* Loại bỏ mọi đường viền */
+        box-shadow: none; /* Loại bỏ bóng dưới header */
+    }
+
+
+    .search-input {
+        border: 2px solid #ccc; /* Đặt đường viền màu xám */
+        padding: 10px;
+        width: 300px; /* Chiều rộng của thanh tìm kiếm */
+        border-radius: 5px; /* Góc bo tròn */
+        outline: none; /* Loại bỏ viền focus mặc định */
+    }
+
+        .search-input:focus {
+            border-color: #007bff; /* Đổi màu viền khi thanh tìm kiếm được chọn */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hiệu ứng đổ bóng khi focus */
+        }
+
+
+</style>

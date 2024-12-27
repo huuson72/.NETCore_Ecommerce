@@ -124,5 +124,6 @@ namespace SV21T1020659.DataLayers
         List<Product> ListProducts(string searchValue);
         bool DeletePhotosByProductId(long productId);
         public bool DeleteProductAttributes(long productID);
+        public  List<ProductPhoto> GetPhotosByProductId(int productId);
     }
 }

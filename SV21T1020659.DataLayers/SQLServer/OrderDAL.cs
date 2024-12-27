@@ -9,9 +9,26 @@ using System.Data;
             public OrderDAL(string connectionString) : base(connectionString)
             {
             }
-     
 
-        public int Add(Order data)
+        public List<Order> GetOrdersByCustomerId(int customerId)
+        {
+            using (var connection = OpenConnection())
+            {
+                // SQL truy vấn danh sách đơn hàng theo CustomerID
+                string sql = @"
+                SELECT 
+                    OrderID, CustomerID, OrderTime, DeliveryProvince, 
+                    DeliveryAddress, EmployeeID, AcceptTime, 
+                    ShipperID, ShippedTime, FinishedTime, Status
+                FROM Orders
+                WHERE CustomerID = @CustomerID
+                ORDER BY OrderTime DESC";
+
+                // Thực thi truy vấn và trả về danh sách đơn hàng
+                return connection.Query<Order>(sql, new { CustomerID = customerId }).ToList();
+            }
+        }
+            public int Add(Order data)
         {
             int id = 0;
    
@@ -39,6 +56,41 @@ using System.Data;
                     data.Status  // Sử dụng kiểu int cho Status
                 };
 
+                id = connection.ExecuteScalar<int>(sql: sql, param: parameters, commandType: CommandType.Text);
+            }
+
+            return id;
+        }
+        public int AddOrderCustomer(Order data)
+        {
+            int id = 0;
+
+            // Gán giá trị mặc định cho trạng thái đơn hàng
+            data.Status = Constants.ORDER_INIT;
+
+            using (var connection = OpenConnection())
+            {
+                // Câu lệnh SQL chèn thông tin đơn hàng vào bảng Orders
+                var sql = @"INSERT INTO Orders(CustomerId, OrderTime,
+                                       DeliveryProvince, DeliveryAddress,
+                                       EmployeeID, Status, PhoneNumber)
+                    VALUES(@CustomerID, GETDATE(),
+                           @DeliveryProvince, @DeliveryAddress,
+                           @EmployeeID, @Status, @PhoneNumber);
+                    SELECT @@IDENTITY"; // Trả về ID của đơn hàng vừa tạo
+
+                // Tạo đối tượng parameters bao gồm các tham số cần thiết
+                var parameters = new
+                {
+                    data.CustomerID,
+                    data.DeliveryProvince,
+                    data.DeliveryAddress,
+                    data.EmployeeID,
+                    data.Status,
+                    data.PhoneNumber  // Thêm SĐT vào câu lệnh SQL
+                };
+
+                // Thực thi câu lệnh SQL và trả về ID của đơn hàng
                 id = connection.ExecuteScalar<int>(sql: sql, param: parameters, commandType: CommandType.Text);
             }
 
@@ -322,5 +374,7 @@ using System.Data;
             }
                 return result;
             }
+
+
         }
     }

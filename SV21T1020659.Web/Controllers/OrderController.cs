@@ -114,22 +114,6 @@ namespace SV21T1020659.Web.Controllers
 
 
 
-        /*  public IActionResult Details(int id = 0)
-
-          {
-              var order = OrderDataService.GetOrder(id);
-              if (order == null)
-                  return RedirectToAction("Index");
-              var details = OrderDataService.ListOrderDetails(id);
-
-
-              var model = new OrderDetailModel()
-              {
-                  Order = order,
-                  Details = details
-              };
-              return View(model);
-          }*/
         public IActionResult EditDetail(int orderId, int productId)
         {
             // Lấy chi tiết đơn hàng từ database theo OrderID và ProductID
@@ -145,24 +129,7 @@ namespace SV21T1020659.Web.Controllers
             return View(orderDetail); // Chắc chắn rằng orderDetail không null
         }
 
-        /*   [HttpPost]
-           public IActionResult EditDetail(int orderId, int productId, int quantity, decimal salePrice)
-           {
-
-               // Gọi service để lưu thông tin mặt hàng
-               var success = OrderDataService.SaveOrderDetail(orderId, productId, quantity, salePrice);
-
-               if (success)
-               {
-
-                   return RedirectToAction("Details", new { id = orderId });
-               }
-               else
-               {
-
-                   return View();
-               }
-           }*/
+      
         [HttpPost]
         public IActionResult EditDetail(int orderId, int productId, int quantity, decimal salePrice)
         {
@@ -228,10 +195,7 @@ namespace SV21T1020659.Web.Controllers
         }
 
 
-        //public IActionResult Shipping(int id = 0)
-        //{
-        //    return View();
-        //}
+       
         public IActionResult Shipping(int id = 0)
         {
             var order = OrderDataService.GetOrder(id);
@@ -298,26 +262,6 @@ namespace SV21T1020659.Web.Controllers
             return RedirectToAction("Shipping", new { id = id });
         }
 
-
-        /* [HttpPost]
-         public IActionResult Shipping(int id, int shipperID)
-         {
-             if (shipperID <= 0)
-             {
-                 return Json(new { success = false, message = "Vui lòng chọn người giao hàng hợp lệ." });
-             }
-
-             var success = OrderDataService.ShipOrder(id, shipperID);
-
-             if (success)
-             {
-                 // Chuyển hướng về trang chi tiết đơn hàng sau khi chuyển giao hàng thành công
-                 TempData["Message"] = "Đã chuyển giao hàng thành công.";  // Hiển thị thông báo thành công trong View
-                 return RedirectToAction("Details", "Order", new { id = id });
-             }
-
-             return Json(new { success = false, message = "Không thể chuyển giao hàng. Vui lòng thử lại." });
-         }*/
 
 
 
@@ -393,13 +337,7 @@ namespace SV21T1020659.Web.Controllers
             ApplicationContext.SetSessionData(SHOPPING_CART, shoppingCart);
             return Json("");
         }
-        //public IActionResult ClearCart()
-        //{
-        //    var shoppingCart = GetShoppingCart();
-        //    shoppingCart.Clear();
-        //    ApplicationContext.SetSessionData(SHOPPING_CART, shoppingCart);
-        //    return Json("");
-        //}
+ 
         public IActionResult ClearCart()
         {
             var shoppingCart = GetShoppingCart();

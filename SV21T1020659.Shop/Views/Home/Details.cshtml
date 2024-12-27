@@ -1,0 +1,588 @@
+﻿@model SV21T1020659.Shop.Models.ProductDetailsViewModel
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+
+        .thumbnail-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Tăng khoảng cách giữa các ảnh nhỏ */
+            margin-top: 60px; /* Di chuyển các ảnh nhỏ xuống một chút */
+        }
+
+            .thumbnail-column img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                border: 2px solid transparent;
+                cursor: pointer;
+                transition: border-color 0.3s;
+            }
+
+                .thumbnail-column img.active {
+                    border-color: #007bff;
+                }
+
+        .main-image {
+            max-height: 500px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateX(-10%); /* Dịch ảnh chính qua trái một chút */
+        }
+
+        .product-info {
+            margin-top: 20px;
+        }
+        .product-attributes ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .product-attributes li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .product-attributes span {
+            font-size: 1rem;
+        }
+
+        .attribute-name {
+            font-weight: bold;
+        }
+
+        .attribute-value {
+            color: #198754;
+        }
+        .text-wrap {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            white-space: normal; /* Cho phép ngắt dòng */
+        }
+
+        .card_product {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            width: 100%;
+            height: 200px; /* Đảm bảo tất cả hình ảnh có chiều cao đồng nhất */
+        }
+
+        .card-body {
+            flex-grow: 1; /* Đảm bảo body chiếm phần còn lại của thẻ card */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-body p {
+            font-size: 0.9rem;
+            color: #666;
+            flex-grow: 1; /* Đảm bảo đoạn văn bản chiếm không gian còn lại */
+            margin-bottom: 15px;
+        }
+
+        .card-body .btn {
+            margin-top: auto; /* Đẩy nút xuống dưới cùng */
+        }
+
+        .list-group-item {
+            padding: 10px 15px; /* Tăng không gian giữa các mục */
+        }
+
+            .list-group-item .fw-bold {
+                font-size: 1rem; /* Tăng kích thước tên thuộc tính */
+            }
+
+            .list-group-item .badge {
+                font-size: 0.8rem !important; /* Tăng kích thước giá trị thuộc tính */
+                padding: 10px 15px; /* Tăng kích thước khung */
+            }
+
+        .d-flex.justify-content-center.align-items-center {
+            gap: 20px; /* Tạo khoảng cách giữa tên và giá trị thuộc tính */
+        }
+
+        .d-flex.align-items-center.gap-1 {
+            gap: 0px; /* Xóa hoàn toàn khoảng cách giữa các phần tử */
+        }
+
+        .d-flex.align-items-center {
+            gap: 10px;
+        }
+
+        .bg-cream {
+            background-color: #FFFBF3;
+        }
+
+        .text-dark {
+            color: #000;
+        }
+
+        .text-danger {
+            color: #C62828 !important;
+        }
+
+        .bg-warning {
+            background-color: #FFD700;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #countdown span {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Định dạng ảnh nhỏ */
+        .thumbnail {
+            cursor: pointer;
+            transition: transform 0.3s ease, border 0.3s ease;
+            width: 80px; /* Đảm bảo tất cả ảnh nhỏ cùng kích thước */
+            height: 80px;
+            object-fit: cover;
+            border: 1px solid transparent; /* Viền mặc định trong suốt */
+            margin: 0; /* Loại bỏ khoảng cách mặc định */
+        }
+
+            .thumbnail:hover {
+                transform: scale(1.1);
+            }
+
+        /* Viền đen cho ảnh đang chọn */
+        .selected-thumbnail {
+            border: 2px solid black !important;
+        }
+
+        /* Căn chỉnh ảnh nhỏ */
+        .thumbnails-container {
+            display: flex;
+            justify-content: center; /* Căn giữa các ảnh */
+            flex-wrap: wrap; /* Đảm bảo ảnh nhỏ xuống dòng nếu quá dài */
+            gap: 10px; /* Khoảng cách giữa các ảnh nhỏ */
+            margin-top: 20px;
+        }
+
+        /* Đảm bảo ảnh chính không có viền đen */
+        .main-image {
+            width: 450px; /* Hoặc chiều rộng cụ thể như 400px */
+            max-height: 350px;
+            height: 350px; /* Đảm bảo ảnh chính có kích thước cố định */
+            object-fit: cover;
+            border-radius: 5px;
+            padding-right: 30px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Cải tiến cho carousel */
+        .carousel-inner img {
+            height: 300px; /* Chiều cao của ảnh chính */
+            object-fit: cover;
+        }
+
+        .carousel-indicators li {
+            width: 60px; /* Kích thước ảnh nhỏ */
+            height: 40px;
+        }
+
+        .carousel-indicators img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .d-flex.align-items-start {
+            align-items: flex-start; /* Đảm bảo icon và phần mô tả thẳng hàng */
+        }
+
+        .fw-bold {
+            white-space: nowrap; /* "Mô tả:" luôn nằm trên một hàng */
+        }
+
+        .text-muted {
+            white-space: normal; /* Cho phép nội dung mô tả xuống dòng */
+            word-wrap: break-word; /* Ngắt dòng nếu nội dung quá dài */
+        }
+
+        .me-2 {
+            margin-right: 8px; /* Tạo khoảng cách giữa các phần tử */
+        }
+
+        .card_product {
+            max-width: 200px; /* Giới hạn chiều rộng của card */
+            margin: 0 auto; /* Căn giữa card */
+            height: 320px; /* Đặt chiều cao cố định cho tất cả các card */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Căn chỉnh các phần tử bên trong */
+        }
+
+            .card_product img {
+                height: 150px; /* Đặt chiều cao cố định cho ảnh */
+                object-fit: cover;
+            }
+
+        .card-body {
+            padding: 8px; /* Giảm khoảng cách trong card */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 14px; /* Giảm kích thước tiêu đề */
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            font-size: 12px; /* Giảm kích thước nội dung mô tả */
+            text-align: center;
+            flex-grow: 1; /* Để đoạn mô tả lấp đầy không gian còn lại */
+            margin-bottom: 8px;
+        }
+
+
+    </style>
+</head>
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal originalPrice = Model.Price * 1.29m;
+}
+
+@section NoBanner {
+    <!-- Tắt banner -->
+}
+
+<div class="container my-5">
+    <div class="row align-items-stretch">
+     @*    <!-- Cột ảnh sản phẩm -->
+        <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card w-100 shadow-sm border-0">
+                <!-- Hiển thị các ảnh -->
+                <div id="thumbnailCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Ảnh chính -->
+                        <div class="carousel-item active">
+                            <img src="http://localhost:33796/images/products/@(string.IsNullOrWhiteSpace(Model.Product.Photo) ? "product1.jpg" : Model.Product.Photo)"
+                                 alt="@Model.Product.ProductName"
+                                 class="img-fluid d-block mx-auto custom-img">
+                        </div>
+
+
+                        <!-- Các ảnh nhỏ -->
+                        @foreach (var photo in Model.Photos)
+                        {
+                            <div class="carousel-item">
+                                <img src="http://localhost:33796/images/products/@photo.Photo"
+                                     alt="@photo.Description"
+                                     class="img-fluid d-block mx-auto custom-img">
+                            </div>
+                        }
+                    </div>
+                    <!-- Nút điều khiển -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#thumbnailCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#thumbnailCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <!-- Thông tin sản phẩm ngắn -->
+                <div class="p-3">
+                    <div class="d-flex align-items-center justify-content-center text-center mb-2">
+                        <i class="bi bi-info-circle text-primary fs-5 me-2"></i>
+                        <span class="fw-bold me-2">Mô tả:</span>
+                        <span class="text-muted text-break">@Model.Product.ProductDescription</span>
+                    </div>
+
+
+
+                    <div class="d-flex align-items-center justify-content-center text-center">
+                        @if (Model.Product.IsSelling)
+                        {
+                            <i class="bi bi-check-circle text-success me-2 fs-5"></i>
+                            <span class="fw-bold text-success">Còn hàng</span>
+                        }
+                        else
+                        {
+                            <i class="bi bi-x-circle text-danger me-2 fs-5"></i>
+                            <span class="fw-bold text-danger">Hết hàng</span>
+                        }
+                    </div>
+                    <!-- Hiển thị thuộc tính sản phẩm -->
+                    <div class="mt-4">
+                        <h5 class="fw-bold text-center">Thông tin sản phẩm</h5>
+                        <ul class="list-group">
+                            @if (Model.Attributes != null && Model.Attributes.Any())
+                            {
+                                @foreach (var attribute in Model.Attributes)
+                                {
+                                    <li class="list-group-item d-flex justify-content-center align-items-center p-2">
+                                        <span class="fw-bold me-3">@(attribute.AttributeName):</span>
+                                        <span class="badge bg-success fs-4">@(attribute.AttributeValue)</span>
+                                    </li>
+                                }
+                            }
+                            else
+                            {
+                                <li class="list-group-item text-center p-2">Không có thuộc tính nào.</li>
+                            }
+                        </ul>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div> *@
+
+       <!-- Cột ảnh sản phẩm -->
+        <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card w-100 shadow-sm border-0">
+                <div class="row">
+                    <!-- Cột ảnh nhỏ -->
+                    <div class="col-3">
+                        <div class="thumbnail-column">
+                            <img src="http://localhost:33796/images/products/@(string.IsNullOrWhiteSpace(Model.Product.Photo) ? "product1.jpg" : Model.Product.Photo)"
+                                 alt="Ảnh chính"
+                                 class="thumbnail active"
+                                 onclick="changeMainImage(this, '@(string.IsNullOrWhiteSpace(Model.Product.Photo) ? "product1.jpg" : Model.Product.Photo)')">
+                            @foreach (var photo in Model.Photos)
+                            {
+                                <img src="http://localhost:33796/images/products/@photo.Photo"
+                                     alt="@photo.Description"
+                                     class="thumbnail"
+                                     onclick="changeMainImage(this, '@photo.Photo')">
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Ảnh chính -->
+                    <div class="col-9">
+                        <img id="mainImage" src="http://localhost:33796/images/products/@(string.IsNullOrWhiteSpace(Model.Product.Photo) ? "product1.jpg" : Model.Product.Photo)"
+                             alt="@Model.Product.ProductName"
+                             class="img-fluid main-image d-block mx-auto">
+                    </div>
+                </div>
+
+                <!-- Thông tin sản phẩm ngắn -->
+                <div class="p-3">
+                    <div class="d-flex align-items-center justify-content-center text-center mb-2">
+                        <i class="bi bi-info-circle text-primary fs-5 me-2"></i>
+                        <span class="fw-bold me-2">Mô tả:</span>
+                        <span class="text-muted text-break">@Model.Product.ProductDescription</span>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center text-center">
+                        @if (Model.Product.IsSelling)
+                        {
+                            <i class="bi bi-check-circle text-success me-2 fs-5"></i>
+                            <span class="fw-bold text-success">Còn hàng</span>
+                        }
+                        else
+                        {
+                            <i class="bi bi-x-circle text-danger me-2 fs-5"></i>
+                            <span class="fw-bold text-danger">Hết hàng</span>
+                        }
+                    </div>
+
+                    <!-- Hiển thị thuộc tính sản phẩm -->
+                    <div class="mt-4">
+                        <h5 class="fw-bold text-center">Thông tin sản phẩm</h5>
+                        <ul class="list-group">
+                            @if (Model.Attributes != null && Model.Attributes.Any())
+                            {
+                                @foreach (var attribute in Model.Attributes)
+                                {
+                                    <li class="list-group-item d-flex justify-content-center align-items-center p-2">
+                                        <span class="fw-bold me-3">@(attribute.AttributeName):</span>
+                                        <span class="badge bg-success fs-4">@(attribute.AttributeValue)</span>
+                                    </li>
+                                }
+                            }
+                            else
+                            {
+                                <li class="list-group-item text-center p-2">Không có thuộc tính nào.</li>
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <!-- Cột thông tin sản phẩm -->
+        <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card w-100 shadow-sm p-4 bg-cream">
+                <div>
+                    <!-- Tên sản phẩm -->
+                    <h3 class="text-dark fw-bold me-2 mb-0 text-wrap" style="text-align:center">@Model.Product.ProductName</h3>
+
+                    <!-- Giá sản phẩm -->
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <h3 class="fw-bold me-2 mb-0 text-danger">@Model.Product.Price.ToString("N0") đ</h3>
+                        <del class="text-muted fs-5">@originalPrice.ToString("N0") đ</del>
+                        <span class="text-danger ms-2 fw-bold fs-6">-29%</span>
+                    </div>
+
+
+                    <!-- Điểm thưởng -->
+                 @*    <div class="bg-warning p-2 rounded mb-3 d-inline-block text-wrap">
+                        <span class="text-dark fw-bold"><i class="bi bi-coin"></i> +5.997 Điểm thưởng</span>
+                    </div>
+ *@
+                    <!-- Khuyến mãi -->
+                    <h5 class="fw-bold mb-2" style="padding-top:50px;padding-bottom:20px;text-align:center">Khuyến mãi sốc !!</h5>
+                    <div class="border border-danger rounded p-3 mb-3 text-wrap">
+                        <h5 class="fw-bold text-danger mb-1">⚡ Giờ vàng giảm sốc</h5>
+                        <span class="fw-bold fs-5 text-warning">Giảm ngay 1.000.000 đ</span>
+                        <div class="text-danger fw-bold mt-2">🔥 Đã bán 1/10 suất</div>
+                    </div>
+
+                    <!-- Nút thêm vào giỏ hàng -->
+                    <div class="mt-auto text-center">
+                        <button class="btn btn-success btn-lg rounded-pill shadow"
+                                onclick="addToCart(@Model.ProductID, event)"
+                                style="background:red; width: auto; padding: 20px 10px; margin-top: 40px; border-radius: 30px !important;">
+                            <i class="bi bi-cart-plus" style="font-weight: bolder; font-size: 1.2em; color: white;"></i>
+                            <span style="font-weight: bold; color: white;">Thêm vào giỏ hàng</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container mt-5">
+    <h3 class="text-center mb-4 text-uppercase" style="padding-bottom:20px">Có thể bạn thích</h3>
+    <div class="row justify-content-center">
+        <!-- Sản phẩm 1 -->
+        <div class="col-6 col-sm-4 col-md-3 mb-3">
+            <div class="card_product shadow-sm border-light">
+                <img src="@Url.Content("~/images/products/macbookpro.png")" class="card-img-top" alt="Macbook Pro">
+                <div class="card-body">
+                    <h6 class="card-title">Macbook Pro</h6>
+                    <p>Mỏng nhẹ, hiệu suất cao, lý tưởng cho công việc văn phòng và giải trí.</p>
+                    <a href="http://localhost:48588/Home/Details/1831" class="btn btn-primary btn-sm d-block">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sản phẩm 2 -->
+        <div class="col-6 col-sm-4 col-md-3 mb-3">
+            <div class="card_product shadow-sm border-light">
+                <img src="@Url.Content("~/images/products/macbook.jpg")" class="card-img-top" alt="MacBook Air">
+                <div class="card-body">
+                    <h6 class="card-title">MacBook Air</h6>
+                    <p>Tinh tế, gọn nhẹ, màn hình sắc nét, phù hợp với mọi người.</p>
+                    <a href="http://localhost:48588/Home/Details/1832" class="btn btn-primary btn-sm d-block">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sản phẩm 3 -->
+        <div class="col-6 col-sm-4 col-md-3 mb-3">
+            <div class="card_product shadow-sm border-light">
+                <img src="@Url.Content("~/images/products/product1.jpg")" class="card-img-top" alt="Lenovo Legion 5">
+                <div class="card-body">
+                    <h6 class="card-title">Lenovo Legion 5</h6>
+                    <p>Laptop gaming mạnh mẽ, lý tưởng cho công việc và giải trí.</p>
+                    <a href="http://localhost:48588/Home/Details/1833" class="btn btn-primary btn-sm d-block">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sản phẩm 4 -->
+        <div class="col-6 col-sm-4 col-md-3 mb-3">
+            <div class="card_product shadow-sm border-light">
+                <img src="@Url.Content("~/images/products/asus.png")" class="card-img-top" alt="Asus ZenBook">
+                <div class="card-body">
+                    <h6 class="card-title">Asus ZenBook</h6>
+                    <p>Chiếc laptop siêu mỏng nhẹ với thiết kế thời thượng</p>
+                    <a href="http://localhost:48588/Home/Details/1834" class="btn btn-primary btn-sm d-block">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- JavaScript -->
+<script>
+    const endTime = new Date().getTime() + (2 * 60 * 60 * 1000); // Đếm ngược 2 giờ từ thời điểm hiện tại.
+
+    // Hàm cập nhật đồng hồ đếm ngược
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+
+        if (distance > 0) {
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+        } else {
+            // Khi hết thời gian, hiển thị thông báo hết hạn
+            clearInterval(countdownInterval);
+            document.getElementById("countdown").innerHTML = `<span class="text-danger fw-bold">Hết hạn</span>`;
+        }
+    }
+
+    // Cập nhật đồng hồ mỗi giây
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Chạy lần đầu tiên để không phải chờ 1 giây
+    // Thay đổi ảnh chính khi nhấp vào ảnh nhỏ
+    // function changeImage(photoName) {
+    //     var mainImage = document.getElementById("mainImage");
+    //     mainImage.src = "http:localhost:33796/images/products/" + photoName;
+
+    //     Thêm viền đen cho ảnh đang chọn
+    //     var thumbnails = document.querySelectorAll('.thumbnail');
+    //     thumbnails.forEach(function (thumbnail) {
+    //         thumbnail.classList.remove('selected-thumbnail');
+    //     });
+
+    //     var selectedThumbnail = document.querySelector(`img[src*='${photoName}']`);
+    //     if (selectedThumbnail) {
+    //         selectedThumbnail.classList.add('selected-thumbnail');
+    //     }
+    // }
+    function changeMainImage(thumbnail, newSrc) {
+        // Thay đổi ảnh chính
+        document.getElementById('mainImage').src = `http://localhost:33796/images/products/${newSrc}`;
+
+        // Thay đổi trạng thái active cho ảnh nhỏ
+        document.querySelectorAll('.thumbnail-column img').forEach(img => img.classList.remove('active'));
+        thumbnail.classList.add('active');
+    }
+</script>

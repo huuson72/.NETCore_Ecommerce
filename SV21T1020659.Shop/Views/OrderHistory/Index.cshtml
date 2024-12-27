@@ -1,0 +1,78 @@
+﻿@section NoBanner {
+    <!-- Tắt banner -->
+}
+
+<h2 class="text-center mb-4">Lịch sử mua hàng</h2>
+<a href="@Url.Action("Index", "Home")"
+   style="left: 30px; margin-left:20px;background-color: #007bff; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; margin-bottom: 30px; display: inline-block;">
+    Quay lại trang chủ
+</a>
+@if (Model == null)
+{
+    <div class="text-center">
+        <p class="text-muted">Bạn chưa có đơn hàng nào.</p>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th scope="col">Mã đơn hàng</th>
+                    <th scope="col">Ngày đặt hàng</th>
+                    <th scope="col" class="text-start">Địa chỉ giao hàng</th>
+                    <th scope="col" class="text-start">Tỉnh</th>
+                    <th scope="col">Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <!-- Tạo link để khi nhấn vào mã đơn hàng sẽ chuyển tới trang Details trong CartController -->
+                        <td class="text-center fw-bold">
+                            <a href="@Url.Action("Details", "Cart", new { orderId = order.OrderID })">
+                                @order.OrderID
+                            </a>
+                        </td>
+                        <td class="text-center">@order.OrderTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        <td class="text-start">@order.DeliveryAddress</td>
+                        <td class="text-start">@order.DeliveryProvince</td>
+                        <td class="text-center">
+                            @if (order.Status == -2)
+                            {
+                                <span class="badge bg-danger">Đơn hàng bị từ chối</span>
+                            }
+                            else if (order.Status == -1)
+                            {
+                                <span class="badge bg-secondary">Đơn hàng đã bị hủy</span>
+                            }
+                            else if (order.Status == 1)
+                            {
+                                <span class="badge bg-info">Đơn hàng vừa gửi/khởi tạo</span>
+                            }
+                            else if (order.Status == 2)
+                            {
+                                <span class="badge bg-warning">Đơn hàng đã chấp nhận</span>
+                            }
+                            else if (order.Status == 3)
+                            {
+                                <span class="badge bg-primary">Đơn hàng đang được vận chuyển</span>
+                            }
+                            else if (order.Status == 4)
+                            {
+                                <span class="badge bg-success">Đơn hàng đã hoàn tất</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Trạng thái không xác định</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+}

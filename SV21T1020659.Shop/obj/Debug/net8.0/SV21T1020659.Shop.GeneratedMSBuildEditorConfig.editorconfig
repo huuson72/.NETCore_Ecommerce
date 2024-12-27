@@ -18,6 +18,58 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.Shop
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Account/UpdateProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVcGRhdGVQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Cart/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Cart/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Cart/OrderConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPcmRlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Cart/OrderHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPcmRlckhpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Cart/ViewCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxWaWV3Q2FydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Cart/_CartPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxfQ2FydFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Home/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Home/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -28,6 +80,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Home/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/OrderHistory/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJIaXN0b3J5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/VisualStudioProject/Projects/Nhom4/SV21T1020659/SV21T1020659.Shop/Views/Shared/Error.cshtml]

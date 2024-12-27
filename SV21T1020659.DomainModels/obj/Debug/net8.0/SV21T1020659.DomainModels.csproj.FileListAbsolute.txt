@@ -1,10 +1,12 @@
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\bin\Debug\net8.0\SV21T1020659.DomainModels.deps.json
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\bin\Debug\net8.0\SV21T1020659.DomainModels.dll
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\bin\Debug\net8.0\SV21T1020659.DomainModels.pdb
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\SV21T1020659.DomainModels.csproj.AssemblyReference.cache
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\SV21T1020659.DomainModels.GeneratedMSBuildEditorConfig.editorconfig
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\SV21T1020659.DomainModels.AssemblyInfoInputs.cache
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\SV21T1020659.DomainModels.AssemblyInfo.cs
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\SV21T1020659.DomainModels.csproj.CoreCompileInputs.cache
+D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\SV21T1020659.DomainModels.sourcelink.json
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\SV21T1020659.DomainModels.dll
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\refint\SV21T1020659.DomainModels.dll
 D:\VisualStudioProject\Projects\Nhom4\SV21T1020659\SV21T1020659.DomainModels\obj\Debug\net8.0\SV21T1020659.DomainModels.pdb

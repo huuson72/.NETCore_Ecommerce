@@ -21,6 +21,7 @@
         public DateTime? ShippedTime { get; set; }
         public DateTime? FinishedTime { get; set; }
         public int Status { get; set; }
+        public string PhoneNumber { get; set; } = "";
         /// <summary>
         /// Mô tả trạng thái đơn hàng dựa trên mã trạng thái
         /// </summary>

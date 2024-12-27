@@ -1,0 +1,13 @@
+﻿@model int
+
+<div class="container mt-4">
+    <h2 class="text-center">Đặt hàng thành công!</h2>
+    <p>Cảm ơn bạn đã mua sắm tại cửa hàng của chúng tôi.</p>
+    <p>Mã đơn hàng của bạn là: <strong>@Model</strong></p>
+
+    <!-- Nút Tiếp tục mua sắm -->
+    <a href="@Url.Action("Index", "Products")" class="btn btn-primary">Tiếp tục mua sắm</a>
+
+    <!-- Nút Xem chi tiết đơn hàng -->
+    <a href="@Url.Action("Details", "Cart", new { orderId = Model })" class="btn btn-secondary">Xem chi tiết đơn hàng</a>
+</div>

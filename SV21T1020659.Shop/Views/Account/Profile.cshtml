@@ -1,0 +1,67 @@
+﻿@model SV21T1020659.DomainModels.Customer
+
+@section NoBanner {
+    <!-- Tắt banner -->
+}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Thông Tin Khách Hàng</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <!-- Placeholder for customer avatar -->
+                    <img src="@(string.IsNullOrEmpty(Model.Photo) ?
+                    "/images/customers/avatar.jpg" : Url.Content("/images/customers/" + Model.Photo))"
+                    alt="Avatar" class="img-thumbnail rounded-circle mb-3"
+                         style="width: 90px; height: 90px;">
+                    <h4>@Model.CustomerName</h4>
+                    <p class="text-muted">ID: @Model.CustomerID</p>
+                </div>
+                <div class="col-md-8">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Người Liên Hệ:</th>
+                                <td>@Model.ContactName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Địa Chỉ:</th>
+                                <td>@Model.Address</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tỉnh/Thành:</th>
+                                <td>@Model.Province</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Số Điện Thoại:</th>
+                                <td>@Model.Phone</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email:</th>
+                                <td>@Model.Email</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Trạng Thái:</th>
+                                <td>
+                                    <span class="badge @(Model.IsLocked ? "bg-danger" : "bg-success")">
+                                        @(Model.IsLocked ? "Đã khóa" : "Hoạt động")
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">
+                <i class="bi bi-arrow-left-circle"></i> Quay Lại Trang Chủ
+            </a>
+            <a href="@Url.Action("UpdateProfile", "Account")" class="btn btn-primary">
+                <i class="bi bi-arrow-left-circle"></i> Đổi thông tin
+            </a>
+        </div>
+    </div>
+</div>

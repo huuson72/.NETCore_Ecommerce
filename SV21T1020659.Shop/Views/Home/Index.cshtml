@@ -1,149 +1,20 @@
-﻿@* @model List<SV21T1020659.DomainModels.Product>
-@{
-    ViewBag.Title = "HStore";
-}
-
-<div class="container mt-4">
-    <h2 style="margin-left:450px">Sản phẩm nổi bật</h2>
-    <div class="row mb-4">
-       
-    </div>
-    <div class="row">
-        @if (Model != null && Model.Count > 0)
-        {
-            foreach (var product in Model)
-            {
-                <div class="col-md-3 mb-3 d-flex justify-content-center">
-                    <!-- Căn giữa các thẻ card -->
-                    <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-                        <!-- Giảm kích thước card và sử dụng flexbox -->
-                        <img src="http://localhost:33796/images/products/@(product.Photo ?? "product1.jpg")"
-                             onerror="this.onerror=null; this.src='/images/products/product1.jpg';"
-                             class="card-img-top" alt="@product.ProductName" style="height: 200px; object-fit: cover;">
-
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title text-center">@product.ProductName</h5> <!-- Căn giữa tên sản phẩm -->
-                            <p class="card-text text-center">@product.ProductDescription</p> <!-- Căn giữa mô tả sản phẩm -->
-                            <p class="text-danger text-center"><strong>@product.Price.ToString("C")</strong></p> <!-- Căn giữa giá -->
-                            <!-- Nút Thêm vào giỏ hàng được căn đều -->
-                            <div class="mt-auto text-center">
-                                <a href="/Cart/AddToCart/@product.ProductID" class="btn btn-success">Thêm vào giỏ hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
-        else
-        {
-            <div class="col-12 text-center">
-                <p>Không tìm thấy sản phẩm nào.</p>
-            </div>
-        }
-    </div>
-    <div class="row mt-4">
-        <div class="col-12 d-flex justify-content-center">
-            <nav>
-                <ul class="pagination">
-                    <!-- Previous page -->
-                    <!-- Previous page -->
-                    @if (ViewBag.Page > 1)
-                    {
-                        <li class="page-item">
-                            <a class="page-link" href="?page=@(ViewBag.Page - 1)&pageSize=@ViewBag.PageSize&searchValue=@ViewBag.SearchValue">Trước</a>
-                        </li>
-                    }
-
-                    <!-- Middle pages -->
-                    @for (int i = Math.Max(1, ViewBag.Page - 3); i <= Math.Min(ViewBag.TotalPages, ViewBag.Page + 3); i++)
-                    {
-                        <li class="page-item @(i == ViewBag.Page ? "active" : "")">
-                            <a class="page-link" href="?page=@i&pageSize=@ViewBag.PageSize&searchValue=@ViewBag.SearchValue">@i</a>
-                        </li>
-                    }
-
-                    <!-- Next page -->
-                    @if (ViewBag.Page < ViewBag.TotalPages)
-                    {
-                        <li class="page-item">
-                            <a class="page-link" href="?page=@(ViewBag.Page + 1)&pageSize=@ViewBag.PageSize&searchValue=@ViewBag.SearchValue">Tiếp</a>
-                        </li>
-                    }
-
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-
-</div>
- *@
-
-@*  @using SV21T1020659.DomainModels
-@model SV21T1020659.Web.Models.PaginationSearchInput
+﻿
+@* @model SV21T1020659.Shop.Models.PaginationSearchInput
 
 @{
     ViewBag.Title = "HStore - Trang chủ";
+    bool hideBanner = ViewBag.HideBanner ?? false; // Kiểm tra giá trị để ẩn banner
+    int selectedCategory = Model.CategoryID; // Lấy ID danh mục đã chọn
 }
 
-<div class="box box-primary">
-    <div class="box-body">
-        <form id="frmSearchInput" action="~/Home/Search" method="get">
-            <input type="hidden" name="@nameof(Model.PageSize)" value="@Model.PageSize" />
-
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" autofocus name="@nameof(Model.SearchValue)" value="@Model.SearchValue" />
-                <div class="input-group-btn">
-                    <button class="btn btn-info" type="submit">
-                        <i class="fa fa-search"></i> Tìm
-                    </button>
-                </div>
-            </div>
-        </form>
-
-        <div id="searchResult">
-            <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
-        </div>
+<!-- Banner -->
+@if (!hideBanner)
+{
+    <div id="banner-container" class="container mt-3">
+        <h3 class="text-center">Chào mừng bạn đến với HStore!</h3>
     </div>
-</div>
-@section script {
-        <script>
-            function doSearch(page) {
-                var searchCondition = $("#frmSearchInput").serializeArray();
-                searchCondition.push({ name: "Page", value: page });
-
-                var action = $("#frmSearchInput").prop("action");
-                var method = $("#frmSearchInput").prop("method");
-
-                $.ajax({
-                    url: action,
-                    type: method,
-                    data: searchCondition,
-                    success: function (data) {
-                        $("#searchResult").html(data);
-                    }
-                });
-            }
-
-            $(document).ready(function () {
-                doSearch(@Model.Page);
-
-                $("#frmSearchInput").submit(function (e) {
-                    e.preventDefault();
-                    doSearch(1);
-                });
-            });
-        </script>
 }
- *@
 
-<!-- Layout chỉnh sửa với Bootstrap 4 hoặc 5 -->
-@using SV21T1020659.DomainModels
-@model SV21T1020659.Web.Models.PaginationSearchInput
-
-@{
-    ViewBag.Title = "HStore - Trang chủ";
-}
 
 <div class="box box-primary">
     <div class="box-body">
@@ -154,33 +25,162 @@
 </div>
 
 @section script {
-        <script>
-            function doSearch(page) {
-                // Lấy dữ liệu từ form trong Header
-                var searchCondition = $("#search-form").serializeArray();
-                searchCondition.push({ name: "Page", value: page });
+    <script>
+        function doSearch(page) {
+            var searchCondition = $("#search-form").serializeArray();
+            searchCondition.push({ name: "Page", value: page });
 
-                var action = $("#search-form").prop("action");
-                var method = $("#search-form").prop("method");
+            var action = $("#search-form").prop("action");
+            var method = $("#search-form").prop("method");
 
-                $.ajax({
-                    url: action,
-                    type: method,
-                    data: searchCondition,
-                    success: function (data) {
-                        $("#searchResult").html(data);
-                    }
-                });
-            }
-
-            $(document).ready(function () {
-                doSearch(@Model.Page);
-
-                // Xử lý sự kiện submit form trong Header
-                $("#search-form").submit(function (e) {
-                    e.preventDefault();
-                    doSearch(1);
-                });
+            $.ajax({
+                url: action,
+                type: method,
+                data: searchCondition,
+                success: function (data) {
+                    $("#searchResult").html(data); // Load kết quả tìm kiếm
+                    $("#banner-container").hide(); // Ẩn banner sau khi tìm kiếm
+                    $("html, body").animate({ scrollTop: $("#searchResult").offset().top }, 0);
+                },
+                error: function () {
+                    alert("Đã xảy ra lỗi, vui lòng thử lại!");
+                }
             });
-        </script>
+        }
+
+        $(document).ready(function () {
+            doSearch(@Model.Page);
+
+            $("#search-form").submit(function (e) {
+                e.preventDefault();
+                doSearch(1);
+            });
+        });
+    </script>
 }
+ *@
+@* @model SV21T1020659.Shop.Models.ProductSearchResult
+
+@{
+    ViewBag.Title = "HStore - Trang chủ";
+    bool hideBanner = ViewBag.HideBanner ?? false;
+}
+
+<!-- Banner -->
+@if (!hideBanner)
+{
+    <div id="banner-container" class="container mt-3">
+        <h3 class="text-center">Chào mừng bạn đến với HStore!</h3>
+    </div>
+}
+
+<!-- Danh mục -->
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        @foreach (var category in ViewBag.Categories)
+        {
+            <div class="col-auto mb-2">
+                <a href="javascript:;"
+                   class="btn btn-outline-primary btn-sm"
+                   onclick="doSearchCategory(@category.CategoryID)">
+                    @category.CategoryName
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Kết quả tìm kiếm -->
+<div class="box box-primary">
+    <div class="box-body">
+        <div id="searchResult" class="mt-4">
+            @Html.Partial("Search", Model) <!-- Hiển thị sản phẩm ban đầu -->
+        </div>
+    </div>
+</div>
+
+ @section script {
+     <script>
+         let currentCategoryId = @ViewBag.SelectedCategoryId || 0;
+
+         // Hàm tìm kiếm
+         function doSearch(page = 1) {
+             const searchValue = document.getElementById("searchValue")?.value || "";
+
+             $.ajax({
+                 url: `/Home/Search`,
+                 type: "GET",
+                 data: {
+                     Page: page,
+                     PageSize: @Model.PageSize,
+                     SearchValue: searchValue,
+                     CategoryID: currentCategoryId
+                 },
+                 success: function (data) {
+                     $("#searchResult").html(data); // Cập nhật kết quả
+                     $("html, body").animate({ scrollTop: $("#searchResult").offset().top }, 0);
+                 },
+                 error: function () {
+                     alert("Đã xảy ra lỗi, vui lòng thử lại!");
+                 }
+             });
+         }
+
+         // Hàm tìm kiếm theo danh mục
+         function doSearchCategory(categoryId) {
+             currentCategoryId = categoryId; // Cập nhật danh mục
+             doSearch(1); // Luôn bắt đầu từ trang 1
+         }
+
+         // Bắt sự kiện tìm kiếm từ ô nhập liệu
+         $(document).ready(function () {
+             $("#searchValue").on("keypress", function (e) {
+                 if (e.which === 13) { // Nhấn Enter
+                     e.preventDefault();
+                     doSearch(1); // Bắt đầu từ trang 1
+                 }
+             });
+         });
+     </script>
+ } *@
+
+ @model SV21T1020659.Shop.Models.ProductSearchResult
+
+@{
+    ViewBag.Title = "HStore - Trang chủ";
+    bool hideBanner = ViewBag.HideBanner ?? false;
+}
+
+<!-- Banner -->
+@if (!hideBanner)
+{
+    <div id="banner-container" class="container mt-3" style="padding-bottom:20px">
+        <h3 class="text-center">Danh mục</h3>
+    </div>
+}
+
+<!-- Danh mục -->
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        @foreach (var category in ViewBag.Categories)
+        {
+            <div class="col-auto mb-2">
+                <a href="javascript:;"
+                   class="btn btn-outline-primary btn-sm"
+                   onclick="onCategoryChange(@category.CategoryID, false)">
+                    <!-- Gọi hàm hợp nhất -->
+                    @category.CategoryName
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Kết quả tìm kiếm -->
+<div class="box box-primary">
+    <div class="box-body">
+        <div id="searchResult" class="mt-4">
+            @Html.Partial("Search", Model) <!-- Hiển thị sản phẩm ban đầu -->
+        </div>
+    </div>
+</div>

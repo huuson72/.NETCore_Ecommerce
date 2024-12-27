@@ -431,5 +431,16 @@ namespace SV21T1020659.DataLayers.SQLServer
                 return connection.Execute(sql, new { ProductID = productId }) > 0;
             }
         }
+        /// <summary>
+        /// Lấy danh sách ảnh của sản phẩm
+        /// </summary>
+        public List<ProductPhoto> GetPhotosByProductId(int productId)
+        {
+            using (var connection = OpenConnection())
+            {
+                var sql = "SELECT * FROM ProductPhotos WHERE ProductID = @ProductID";
+                return connection.Query<ProductPhoto>(sql, new { ProductID = productId }).ToList();
+            }
+        }
     }
 }

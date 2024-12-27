@@ -1,8 +1,14 @@
-﻿@model SV21T1020659.Web.Models.ProductSearchResult
+﻿
+
+ @model SV21T1020659.Shop.Models.ProductSearchResult
+
+<!-- Toast Container -->
+
 
 <div class="container mt-3">
+    <h3 class="text-center">Sản phẩm nổi bật</h3>
     <p class="text-center">Có <b>@Model.RowCount</b> sản phẩm trong tổng số <b>@Model.PageCount</b> trang</p>
-
+    
     <div class="row">
         @if (Model.Data.Count == 0)
         {
@@ -15,18 +21,41 @@
             @foreach (var product in Model.Data)
             {
                 <div class="col-md-3 mb-4 d-flex justify-content-center">
-                    <div class="card shadow-sm h-100" style="width: 18rem; border-radius: 10px; overflow: hidden;">
+                    <!-- Sử dụng thẻ card làm trigger chuyển đến trang chi tiết -->
+                    <div class="card shadow-sm h-100"
+                         style="width: 18rem; border-radius: 10px; overflow: hidden; cursor: pointer;"
+                         onclick="window.location.href='/Home/Details/@product.ProductID'">
+
+                        <!-- Ảnh sản phẩm -->
                         <img src="http://localhost:33796/images/products/@(product.Photo ?? "product1.jpg")"
                              onerror="this.onerror=null; this.src='/images/products/product1.jpg';"
-                             class="card-img-top" alt="@product.ProductName" style="height: 200px; object-fit: cover;">
+                             class="card-img-top" alt="@product.ProductName"
+                             style="height: 200px; object-fit: cover;">
 
+                        <!-- Nội dung sản phẩm -->
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title text-center">@product.ProductName</h5>
                             <p class="card-text text-center text-muted">@product.ProductDescription</p>
-                            <p class="text-danger text-center"><strong>@product.Price.ToString("C")</strong></p>
+                            <p class="text-danger text-center">
+                                <strong>@(product.Price.ToString("N0") + " Đ")</strong>
+                            </p>
+
+
+
+                            <!-- Nút thêm vào giỏ hàng -->
+                            @* <div class="mt-auto text-center">
+
+                                 <a href="/Cart/AddToCart/@product.ProductID" class="btn btn-success btn-sm">Thêm vào giỏ hàng</a>
+
+                            </div> *@
                             <div class="mt-auto text-center">
-                                <a href="/Cart/AddToCart/@product.ProductID" class="btn btn-success btn-sm">Thêm vào giỏ hàng</a>
+                                <button class="btn btn-primary btn-sm" onclick="addToCart(@product.ProductID, event)">
+                                    Thêm vào giỏ hàng
+                                </button>
                             </div>
+
+
+
                         </div>
                     </div>
                 </div>
@@ -37,21 +66,48 @@
     <!-- Phân trang -->
     <div class="text-center mt-4">
         <ul class="pagination pagination-sm justify-content-center">
-            @for (int p = 1; p <= Model.PageCount; p++)
-            {
-                if (p == Model.Page)
-                {
-                    <li class="page-item active">
-                        <a class="page-link" href="#">@p</a>
-                    </li>
-                }
-                else
+            @{
+                int maxVisiblePages = 7; // Số trang tối đa hiển thị
+                int currentPage = Model.Page; // Trang hiện tại
+                int totalPages = Model.PageCount; // Tổng số trang
+
+                // Hiển thị trang đầu tiên
+                if (currentPage > 4)
                 {
                     <li class="page-item">
-                        <a class="page-link" href="javascript:;" onclick="doSearch(@p)">@p</a>
+                        <a class="page-link" href="javascript:;" onclick="doSearch(1)">1</a>
+                    </li>
+                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                }
+
+                // Hiển thị các trang chính (xung quanh trang hiện tại)
+                int startPage = Math.Max(1, currentPage - 3);
+                int endPage = Math.Min(totalPages, currentPage + 3);
+
+                for (int p = startPage; p <= endPage; p++)
+                {
+                    if (p == currentPage)
+                    {
+                        <li class="page-item active">
+                            <a class="page-link" href="#">@p</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:;" onclick="doSearch(@p)">@p</a>
+                        </li>
+                    }
+                }
+
+                // Hiển thị trang cuối cùng
+                if (currentPage < totalPages - 3)
+                {
+                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:;" onclick="doSearch(@totalPages)">@totalPages</a>
                     </li>
                 }
             }
         </ul>
     </div>
-</div>

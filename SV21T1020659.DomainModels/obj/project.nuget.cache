@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "50sImsXYuCU=",
+  "dgSpecHash": "cXzR+iqRZ7M=",
   "success": true,
   "projectFilePath": "D:\\VisualStudioProject\\Projects\\Nhom4\\SV21T1020659\\SV21T1020659.DomainModels\\SV21T1020659.DomainModels.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\kstha\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\kstha\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\kstha\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

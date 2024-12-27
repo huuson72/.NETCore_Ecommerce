@@ -1,0 +1,159 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .login-container {
+            background: #fff;
+            color: #333;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 1.5rem;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #2575fc;
+        }
+
+        .login-btn {
+            background: #2575fc;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #1e5fbb;
+        }
+
+        .login-container a {
+            display: block;
+            margin-top: 1rem;
+            text-align: center;
+            color: #2575fc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<div class="login-container">
+    <h2>Đăng nhập</h2>
+    <form method="post" asp-action="Login">
+        @Html.AntiForgeryToken()
+
+        <!-- Hiển thị lỗi chung -->
+        <div class="form-group">
+            @if (ViewData.ModelState.ContainsKey("Error"))
+            {
+                <div class="text-danger">
+                    @ViewData.ModelState["Error"].Errors.FirstOrDefault()?.ErrorMessage
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="username">Tên đăng nhập:</label>
+            <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" value="@ViewBag.Username" />
+            <!-- Hiển thị lỗi riêng cho tên đăng nhập -->
+            @Html.ValidationMessage("username", "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" />
+            <!-- Hiển thị lỗi riêng cho mật khẩu -->
+            @Html.ValidationMessage("password", "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="login-btn">Đăng nhập</button>
+    </form>
+    <a href="#">Quên mật khẩu?</a>
+    <a href="/Account/Register">Đăng ký tài khoản mới</a>
+</div>
+
+
+
+
+@* <body>
+    <div class="login-container">
+        <h2>Đăng nhập</h2>
+        <form method="post" asp-action="Login">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label for="username">Tên đăng nhập:</label>
+                <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required />
+            </div>
+            <button type="submit" class="login-btn">Đăng nhập</button>
+        </form>
+        <a href="#">Quên mật khẩu?</a>
+        <a href="/Account/Register">Đăng ký tài khoản mới</a>
+    </div>
+</body> *@
+</html>
+<style>
+    .text-danger {
+        color: red;
+        font-size: 0.9rem; /* Tùy chỉnh kích thước nếu cần */
+        margin-top: 5px; /* Khoảng cách phía trên */
+    }
+
+</style>

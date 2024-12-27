@@ -17,6 +17,8 @@
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/vendor.css")">
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/style.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/site.css")">
+
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -297,14 +299,170 @@
             </symbol>
         </defs>
     </svg>
+    <style>
+        /* Đảm bảo body và html chiếm 100% chiều cao */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Wrapper bao bọc toàn bộ trang sẽ sử dụng Flexbox */
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Phần content sẽ chiếm phần còn lại của không gian */
+        .content-wrapper {
+            flex: 1;
+        }
+
+        /* Footer sẽ tự động đẩy xuống dưới cùng */
+        footer {
+            margin-top: auto;
+        }
+        /* Đổi màu chữ của container thành trắng */
+        .text-white {
+            color: #fff !important;
+        }
+
+        /* Tùy chỉnh nút mua hàng */
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: #fff !important;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-danger:hover {
+                background-color: #bd2130;
+                border-color: #bd2130;
+            }
+
+        .d-flex.gap-2 {
+            gap: 10px; /* Giảm khoảng cách giữa 2 icon */
+        }
+
+        a.p-2.mx-1 {
+            margin: 0 5px; /* Điều chỉnh margin */
+            padding: 0; /* Nếu cần giảm padding */
+        }
+         /* CSS Search */
+
+        /* Card sản phẩm */
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+
+        /* Giới hạn tên sản phẩm */
+        .card-title {
+            max-height: 48px; /* Giới hạn chiều cao */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* Giới hạn mô tả sản phẩm */
+        .card-text {
+            max-height: 48px; /* Giới hạn chiều cao */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* Phần giá sản phẩm */
+        .price {
+            min-height: 30px; /* Đặt chiều cao cố định cho giá */
+            font-size: 1.2rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: center; /* Canh giữa nội dung giá */
+            justify-content: center;
+        }
+
+        /* Nút thêm vào giỏ hàng */
+        .btn-add-to-cart {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 50px; /* Bo tròn nút */
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+            .btn-add-to-cart:hover {
+                background-color: #218838;
+                transform: scale(1.05); /* Phóng to nhẹ khi hover */
+            }
+
+            .btn-add-to-cart i {
+                font-size: 1rem;
+                vertical-align: middle;
+            }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Đảm bảo header nằm trên các thành phần khác */
+            background-color: white; /* Màu nền để tránh nội dung bên dưới lộ ra */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tạo bóng để phân biệt header */
+        }
+
+        body {
+            padding-top: 100px; /* Điều chỉnh để tránh header che mất nội dung khi cố định */
+        }
+
+         /* modal xóa */
+        .modal-dialog {
+            max-width: 40%; /* Điều chỉnh chiều rộng modal */
+        }
+         /* Check out */
+
+
+
+    </style>
 </head>
 <body>
     <div class="wrapper">
-
         @{
             await Html.RenderPartialAsync("_Header");
 
-            await Html.RenderPartialAsync("_Banner");
+
+
+            // Kiểm tra nếu không có section "NoBanner", render banner
+
+            if (!IsSectionDefined("NoBanner"))
+
+            {
+
+                await Html.RenderPartialAsync("_Banner");
+
+            }
+
+            else
+
+            {
+
+                IgnoreSection("NoBanner");
+
+            }
         }
 
         <div class="content-wrapper">
@@ -323,9 +481,61 @@
         <!-- /.content-wrapper -->
         @{
             await Html.RenderPartialAsync("_Footer");
-
         }
     </div>
+   
+    @* <script>
+        // Biến toàn cục để lưu trạng thái hiện tại
+        let currentSearchValue = "@ViewBag.SearchValue" || "";
+        let currentCategoryId = @ViewBag.SelectedCategoryId || 0;
+          let pageSize = @(Model is SV21T1020659.Shop.Models.ProductSearchResult ? Model.PageSize : 12); // Giá trị mặc định là 12 nếu Model không chứa PageSize
+
+        // Hàm tìm kiếm hợp nhất
+        function doSearch(pageNumber = 1, isFromHeader = false) {
+            const pageSize = isFromHeader
+                ? document.querySelector("input[name='PageSize']")?.value || 12
+                : @Model.PageSize;
+
+            const searchValue = isFromHeader
+                ? document.getElementById("searchValue")?.value.trim() || ""
+                : currentSearchValue;
+
+            $.ajax({
+                url: "/Home/Search",
+                type: "GET",
+                data: {
+                    Page: pageNumber,
+                    PageSize: pageSize,
+                    SearchValue: searchValue,
+                    CategoryID: currentCategoryId
+                },
+                success: function (data) {
+                    $("#searchResult").html(data); // Cập nhật nội dung kết quả
+                    if (!isFromHeader) $("#banner-container").hide(); // Chỉ ẩn banner khi ở index
+                    $("html, body").animate({ scrollTop: $("#searchResult").offset().top }, 0); // Cuộn lên đầu kết quả
+                },
+                error: function () {
+                    alert("Đã xảy ra lỗi, vui lòng thử lại!");
+                }
+            });
+        }
+
+        // Hàm thay đổi danh mục
+        function onCategoryChange(categoryId, isFromHeader = false) {
+            currentCategoryId = categoryId; // Cập nhật danh mục hiện tại
+            doSearch(1, isFromHeader); // Gọi tìm kiếm từ trang 1
+        }
+
+        // Lắng nghe sự kiện Enter trong ô tìm kiếm
+        document.getElementById("searchValue")?.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                currentSearchValue = this.value.trim();
+                doSearch(1, true); // Header luôn được đánh dấu là isFromHeader = true
+            }
+        });
+    </script>
+
     <script src="@Url.Content("~/js/jquery-1.11.0.min.js")"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -338,4 +548,183 @@
     @RenderSection("script", false)
 </body>
 
-</html>
+
+
+</html> *@
+    <script>
+        // Biến toàn cục để lưu trạng thái hiện tại
+        let currentSearchValue = "@(ViewBag.SearchValue ?? "")"; // Từ khóa tìm kiếm hiện tại
+        let currentCategoryId = @(ViewBag.SelectedCategoryId ?? 0); // ID danh mục hiện tại
+        const pageSize = @(ViewBag.PageSize ?? 12); // Số lượng sản phẩm mỗi trang
+
+        // Hàm tìm kiếm hợp nhất
+        function doSearch(pageNumber = 1, isFromHeader = false) {
+            const searchValue = isFromHeader
+                ? document.getElementById("searchValue")?.value.trim() || "" // Lấy giá trị từ header
+                : currentSearchValue;
+
+            $.ajax({
+                url: "/Home/Search",
+                type: "GET",
+                data: {
+                    Page: pageNumber,
+                    PageSize: pageSize,
+                    SearchValue: searchValue,
+                    CategoryID: currentCategoryId
+                },
+                success: function (data) {
+                    $("#searchResult").html(data); // Cập nhật nội dung kết quả
+                    if (!isFromHeader) $("#banner-container").hide(); // Chỉ ẩn banner khi ở index
+                    $("html, body").animate({ scrollTop: $("#searchResult").offset().top }, 0); // Cuộn lên đầu kết quả
+                },
+                error: function () {
+                    alert("Đã xảy ra lỗi, vui lòng thử lại!");
+                }
+            });
+        }
+
+        // Hàm thay đổi danh mục
+        function onCategoryChange(categoryId, isFromHeader = false) {
+            // Nếu danh mục hiện tại đã được chọn, reset về "Tất cả sản phẩm"
+            if (currentCategoryId === categoryId) {
+                currentCategoryId = 0;
+            } else {
+                currentCategoryId = categoryId; // Cập nhật danh mục mới
+            }
+
+            // Reset từ khóa tìm kiếm khi thay đổi danh mục
+            if (!isFromHeader) {
+                currentSearchValue = ""; // Xóa từ khóa tìm kiếm khi danh mục thay đổi
+            }
+
+            doSearch(1, isFromHeader); // Gọi tìm kiếm từ trang đầu tiên
+        }
+
+        // Lắng nghe sự kiện Enter trong ô tìm kiếm
+        document.getElementById("searchValue")?.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault(); // Ngăn form gửi đi
+                currentSearchValue = this.value.trim(); // Cập nhật từ khóa tìm kiếm
+                currentCategoryId = 0; // Reset danh mục về "Tất cả sản phẩm" khi tìm kiếm từ header
+                doSearch(1, true); // Thực hiện tìm kiếm
+            }
+        });
+    </script>
+    <script>
+        // function addToCart(productId, event) {
+        //     event.stopPropagation(); Ngăn việc chuyển trang khi click
+
+        //     $.ajax({
+        //         url: '/Cart/AddToCart',
+        //         method: 'POST',
+        //         data: { id: productId },
+        //         success: function (response) {
+        //             if (response.success) {
+        //                 Cập nhật badge giỏ hàng với giá trị từ server
+        //                 $('#cart-badge').removeClass('d-none').text(response.cartCount);
+
+        //                 Hiển thị thông báo Toast
+        //                 showToast(response.message);
+        //             } else {
+        //                 showToast('Không thể thêm sản phẩm vào giỏ hàng!', 'danger');
+        //             }
+        //         },
+        //         error: function () {
+        //             showToast('Có lỗi xảy ra khi thêm vào giỏ hàng!', 'danger');
+        //         }
+        //     });
+        // }
+        function addToCart(productId, event) {
+    event.stopPropagation(); // Ngăn việc chuyển trang khi click
+
+    $.ajax({
+        url: '/Cart/AddToCart',
+        method: 'POST',
+        data: { id: productId },
+        success: function (response) {
+            if (response.success) {
+                // Cập nhật badge giỏ hàng với giá trị từ server
+                $('#cart-badge').removeClass('d-none').text(response.cartCount);
+
+                // Hiển thị thông báo Toast
+                showToast(response.message);
+            } else {
+                if (response.redirectToLogin) {
+                    // Nếu người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                    window.location.href = '/Account/Login';
+                } else {
+                    // Hiển thị thông báo lỗi nếu có vấn đề khác
+                    showToast(response.message || 'Không thể thêm sản phẩm vào giỏ hàng!', 'danger');
+                }
+            }
+        },
+        error: function () {
+            showToast('Có lỗi xảy ra khi thêm vào giỏ hàng!', 'danger');
+        }
+    });
+}
+
+
+        function showToast(message, type = 'success', duration = 2000) {
+            const toastHtml = `
+                <div class="toast align-items-center text-bg-${type} border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="${duration}">
+                    <div class="d-flex">
+                        <div class="toast-body">${message}</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>`;
+
+            // Append toast to container
+            $('#toast-container').append(toastHtml);
+
+            // Show the toast
+            const toastElement = $('#toast-container .toast').last()[0];
+            const toast = new bootstrap.Toast(toastElement, { delay: duration });
+            toast.show();
+
+            // Remove toast from DOM after it disappears
+            $(toastElement).on('hidden.bs.toast', function () {
+                $(this).remove();
+            });
+        }
+
+
+
+    </script>
+    <script src="@Url.Content("~/js/jquery-1.11.0.min.js")"></script> <!-- jQuery cũ -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery mới -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> <!-- Select2 -->
+
+    <script>
+        var jq3 = jQuery.noConflict(true); // Tách jQuery 3.6.0
+
+        jq3(document).ready(function () {
+            console.log(typeof jq3.fn.select2); // Kiểm tra Select2 đã được gắn
+            jq3('select[name="Province"]').select2({
+                placeholder: "-- Chọn tỉnh thành --",
+                allowClear: true
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
+    <script src="@Url.Content("~/js/plugins.js")"></script>
+    <script src="@Url.Content("~/js/modernizr.js")"></script>
+    <script src="@Url.Content("~/js/script.js")"></script>
+    <script src="@Url.Content("~/js/site.js")"></script>
+
+   @*  <script src="@Url.Content("~/js/jquery-1.11.0.min.js")"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
+    <script src="@Url.Content("~/js/plugins.js")"></script>
+    <script src="@Url.Content("~/js/modernizr.js")"></script>
+    <script src="@Url.Content("~/js/script.js")"></script>
+    <script src="@Url.Content("~/js/site.js")"></script> *@
+    @RenderSection("script", false)
+</body>

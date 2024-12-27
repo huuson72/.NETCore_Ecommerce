@@ -1,0 +1,89 @@
+﻿@model SV21T1020659.DomainModels.UpdateProfileViewModel
+
+@{
+    ViewBag.Title = "Cập nhật thông tin cá nhân";
+}
+
+@section NoBanner {
+    <!-- Tắt banner -->
+}
+
+<!-- Lớp bao ngoài -->
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-body">
+
+            <h2 class="text-center mb-4" style="font-family: Arial, sans-serif; font-weight: bold;">Cập nhật thông tin cá nhân</h2>
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+
+            <form asp-action="UpdateProfile" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <!-- Nội dung form nằm giữa màn hình -->
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-8">
+                        <!-- Họ và tên -->
+                        <div class="form-group">
+                            <label for="DisplayName" class="font-weight-bold" style="font-size: 1.1rem;">Họ và tên</label>
+                            <input asp-for="DisplayName" class="form-control" placeholder="Nhập họ và tên" style="font-size: 1rem; padding: 0.8rem;" />
+                            <span asp-validation-for="DisplayName" class="text-danger"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="Email" class="font-weight-bold" style="font-size: 1.1rem;">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Nhập email" style="font-size: 1rem; padding: 0.8rem;" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <!-- Số điện thoại -->
+                        <div class="form-group">
+                            <label for="PhoneNumber" class="font-weight-bold" style="font-size: 1.1rem;">Số điện thoại</label>
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="Nhập số điện thoại" style="font-size: 1rem; padding: 0.8rem;" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <!-- Địa chỉ -->
+                        <div class="form-group">
+                            <label for="Address" class="font-weight-bold" style="font-size: 1.1rem;">Địa chỉ</label>
+                            <input asp-for="Address" class="form-control" placeholder="Nhập địa chỉ" style="font-size: 1rem; padding: 0.8rem;" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <!-- Tỉnh thành -->
+                        <div class="form-group">
+                            <label for="Province" class="font-weight-bold" style="font-size: 1.1rem;">Tỉnh thành</label>
+                            <select name="Province"
+                                    asp-for="Province"
+                                    asp-items="@(new SelectList(ViewBag.Provinces as List<SV21T1020659.DomainModels.Province>, "ProvinceName", "ProvinceName"))"
+                                    class="form-control select2" style="font-size: 1rem; padding: 0.8rem;">
+                                <option value="">-- Chọn tỉnh thành --</option>
+                            </select>
+                            <span asp-validation-for="Province" class="text-danger"></span>
+                        </div>
+
+
+                        <!-- Trường upload ảnh -->
+                        <div class="form-group">
+                            <label for="UploadPhoto" class="font-weight-bold" style="font-size: 1.1rem;">Ảnh đại diện</label>
+                            <input type="file" asp-for="UploadPhoto" class="form-control" />
+                            <span asp-validation-for="UploadPhoto" class="text-danger"></span>
+                        </div>
+
+                        <!-- Nút lưu -->
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg" style="font-size: 1rem; margin-top:20px">Lưu thay đổi</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

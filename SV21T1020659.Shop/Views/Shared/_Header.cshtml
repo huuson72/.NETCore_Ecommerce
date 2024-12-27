@@ -1,4 +1,6 @@
-﻿<div class="preloader-wrapper">
+﻿
+
+<div class="preloader-wrapper">
     <div class="preloader">
     </div>
 </div>
@@ -6,38 +8,56 @@
 <header>
     <div class="container-fluid">
         <div class="row py-3 border-bottom">
-
             <div class="col-sm-4 col-lg-2 text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
                 <div class="d-flex align-items-center my-3 my-sm-0">
-                    <a href="#" style="text-decoration: none;">
+                    <a href="/" style="text-decoration: none;">
                         <img src="@Url.Content("~/images/hslogo.png")" alt="Logo" style="height: 60px; margin-right: 10px; border-radius: 50px;">
                         <span style="font-size: 28px; font-weight: bold;"> HStore </span>
-                    </a>
 
-             </div>
-                
+
+                    </a>
+                </div>
             </div>
 
-            <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
-                <div class="search-bar row bg-light p-2 rounded-4">
-                    <div class="col-md-4 d-none d-md-block">
-                        <select class="form-select border-0 bg-transparent">
-                            <option>Tất cả loại hàng</option>
-                            <option>Groceries</option>
-                            <option>Drinks</option>
-                            <option>Chocolates</option>
-                        </select>
-                    </div>
+            <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4 d-flex align-items-center gap-3">
+                <div class="select-category">
+                    <select class="form-select rounded-category bg-light" name="@nameof(Model.CategoryID)" onchange="onCategoryChange(this.value)"
+                            style="width:200px;height:50px ;border-radius:18px;background-color: transparent;">
+                        <option value="0">Tất cả loại hàng</option>
+                        @if (ViewBag.Categories != null)
+                        {
+                            @foreach (var category in ViewBag.Categories)
+                            {
+                                if (category.CategoryID == ViewBag.CategoryID)
+                                {
+                                    <option value="@category.CategoryID" selected>
+                                        @category.CategoryName
+                                    </option>
+                                }
+                                else
+                                {
+                                    <option value="@category.CategoryID">
+                                        @category.CategoryName
+                                    </option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class="search-bar flex-grow-1 row bg-light p-2 rounded-4 ml-3">
                     <div class="col-11 col-md-7">
                         <form id="search-form" class="text-center" action="/Home/Search" method="get">
-                            <input type="hidden" name="PageSize" value="@Model.PageSize" />
-                            <input type="text" id="searchValue" name="searchValue"
-                                   value="@ViewBag.SearchValue"
+                            <input type="hidden" name="PageSize" value="@ViewBag.PageSize" />
+                            <input type="hidden" name="CategoryID" value="@ViewBag.CategoryID" />
+                            <input type="text" id="searchValue" name="SearchValue" value="@ViewBag.SearchValue"
                                    class="form-control border-0 bg-transparent"
-                                   placeholder="Bạn muốn mua gì?" style="border-radius: 20px;">
+                                   placeholder="Bạn muốn mua gì?"
+                                   style="border-radius: 20px; width: 150px;">
+
                         </form>
                     </div>
-                    <div class="col-1">
+                    <div class="col-1" style="margin-left:40px">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="currentColor"
                                   d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
@@ -49,44 +69,304 @@
             <div class="col-lg-4">
                 <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
                     <li class="nav-item active">
+
                         <a href="/" class="nav-link">Trang Chủ</a>
                     </li>
                     <li class="nav-item active">
-                        <a href="/" class="nav-link">Giới thiệu</a>
+                        <a href="/Home/AboutUs" class="nav-link">Giới thiệu</a>
                     </li>
 
-
                 </ul>
+
             </div>
 
-            <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
-                <ul class="d-flex justify-content-end list-unstyled m-0">
-                      <li>
-                        <a href="#" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                           aria-controls="offcanvasCart">
-                            <svg width="24" height="24">
+            @{
+                int cartCount = Context.Session.GetInt32("CartCount") ?? 0;
+            }
+
+            <div class="col-sm-8 col-lg-2 d-flex gap-2 align-items-center justify-content-start">
+                <ul class="d-flex justify-content-start list-unstyled m-0">
+                    <li class="position-relative">
+                        <a href="/cart/viewcart" class="p-2 mx-1">
+                            <svg width="35" height="35">
                                 <use xlink:href="#shopping-bag"></use>
                             </svg>
+                            <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger @(cartCount > 0 ? "" : "d-none")">
+                                @cartCount
+                            </span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="p-2 mx-1">
-                            <svg width="24" height="24">
-                                <use xlink:href="#user"></use>
-                            </svg>
-                        </a>
-                    </li>
-                   @*   <li>
-                         <a href="#" class="p-2 mx-1">
-                             <svg width="24" height="24">
-                                 <use xlink:href="#wishlist"></use>
-                             </svg>
-                         </a>
-                     </li> *@
-                  
                 </ul>
-            </div>
+                <div id="toast-container" class="toast-container position-fixed"
+                     style="top: 70px; right: 50px; z-index: 1050; transform: translateX(-10%);">
+                </div>
+                <div class="user-icon-container position-relative">
+                    <button id="userIconBtn" class="user-icon" title="Đăng nhập">
+                        <svg width="35" height="35">
+                            <use xlink:href="#user"></use>
+                        </svg>
+                    </button>
 
+                    <!-- Popup chứa nút Đăng nhập và Đăng ký nếu chưa đăng nhập -->
+                    <div id="userPopup" class="user-popup d-none">
+                        <div class="user-header">
+                            <div class="user-info" style="text-align: center;">
+                                @if (User.GetUserData() != null)
+                                {
+                                    @* <div class="avatar-container">
+                                        <img src="@Url.Content(
+                               string.IsNullOrEmpty(User.GetUserData()?.Photo)
+                               ? "/images/customers/avatar.jpg"
+                               : $"/images/customers/{User.GetUserData()?.Photo}")"
+                                             alt="User Avatar"
+                                             class="user-avatar"
+                                             style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-left: 75px;" />
+                                    </div> *@
+                                    <p class="user-display-name" style="margin-left:50px;margin-top:8px">
+                                        Xin chào @User.GetUserData()?.DisplayName
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p class="user-display-name" style="padding-left:60px">Xin chào Khách</p>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="user-menu">
+                            <!-- Hiển thị nút đăng nhập và đăng ký nếu chưa đăng nhập -->
+                            @if (User.GetUserData() == null)
+                            {
+                                <a href="~/Account/Login" class="menu-item" id="loginItem">
+                                    <span class="menu-icon">🔑</span>
+                                    <span class="menu-text">Đăng nhập</span>
+                                </a>
+                                <a href="~/Account/Register" class="menu-item" id="registerItem">
+                                    <span class="menu-icon">📝</span>
+                                    <span class="menu-text">Đăng ký</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <!-- Nếu đã đăng nhập, hiển thị các mục -->
+                                <a href="~/Account/Profile" class="menu-item" id="settingsItem">
+                                    <span class="menu-icon">🧑</span>
+                                    <span class="menu-text">Thông tin của bạn</span>
+                                </a>
+                                <a href="~/OrderHistory/Index" class="menu-item" id="orderHistoryItem">
+                                    <span class="menu-icon">❓</span>
+                                    <span class="menu-text">Lịch sử mua hàng</span>
+                                </a>
+                                <a href="~/Account/ChangePassword" class="menu-item" id="changePasswordItem">
+                                    <span class="menu-icon">⚙️</span>
+                                    <span class="menu-text">Đổi mật khẩu</span>
+                                </a>
+                                <a href="~/Account/Logout" class="menu-item logout" id="logoutItem">
+                                    <span class="menu-icon">🔒</span>
+                                    <span class="menu-text">Đăng xuất</span>
+                                </a>
+                            }
+                        </div>
+
+                        <div class="user-footer">
+                            <p style="text-align: center;">© 2024</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
+
     </div>
+
 </header>
+
+<style>
+
+    .avatar-container {
+        display: flex; /* Sử dụng flexbox để căn giữa */
+        justify-content: center; /* Căn giữa theo chiều ngang */
+        align-items: center; /* Căn giữa theo chiều dọc (nếu cần) */
+        margin-top: 20px; /* Tạo khoảng cách phía trên nếu cần */
+    }
+
+    .user-avatar {
+        width: 50px; /* Đặt chiều rộng cố định */
+        height: 50px; /* Đặt chiều cao cố định */
+        border-radius: 50%; /* Tạo hiệu ứng bo tròn */
+        object-fit: cover; /* Đảm bảo ảnh luôn vừa khung */
+    }
+
+    .user-icon {
+        background: none; /* Loại bỏ nền */
+        border: none; /* Loại bỏ viền */
+        padding-top: 5px; /* Đảm bảo không có padding */
+        display: inline-flex; /* Đảm bảo icon hiển thị gọn gàng */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-icon-container {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        background: none; /* Đảm bảo không có nền bao quanh */
+        border: none; /* Loại bỏ viền xung quanh */
+        padding: 0; /* Loại bỏ khoảng cách bên trong */
+    }
+
+    .user-popup {
+        position: absolute;
+        top: 60px;
+        right: -90px; /* Tăng khoảng cách sang phải */
+        width: 320px;
+        background-color: #242526;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        color: #e4e6eb;
+        z-index: 1050;
+        overflow: hidden;
+    }
+
+    .user-header {
+        display: flex;
+        align-items: center;
+        padding: 12px; /* Tăng padding */
+        border-bottom: 1px solid #3a3b3c;
+    }
+
+    .user-avatar {
+        width: 50px; /* Tăng kích thước avatar */
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 12px;
+    }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .user-name {
+        font-size: 16px; /* Tăng kích thước chữ */
+        font-weight: bold;
+        margin: 0;
+        color: #e4e6eb;
+    }
+
+    .btn-profile {
+        font-size: 14px; /* Tăng kích thước chữ */
+        color: #2d88ff;
+        text-decoration: none;
+    }
+
+        .btn-profile:hover {
+            text-decoration: underline;
+        }
+
+    .user-menu {
+        padding: 12px 0; /* Tăng padding */
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 12px; /* Tăng padding */
+        text-decoration: none;
+        color: #e4e6eb;
+        transition: background-color 0.2s ease;
+        font-size: 15px; /* Tăng kích thước chữ */
+    }
+
+        .menu-item:hover {
+            background-color: #3a3b3c;
+        }
+
+    .menu-icon {
+        font-size: 18px; /* Tăng kích thước biểu tượng */
+        width: 35px; /* Tăng kích thước vùng biểu tượng */
+        text-align: center;
+        color: #b0b3b8;
+    }
+
+    .menu-text {
+        flex-grow: 1;
+        font-size: 15px; /* Tăng kích thước chữ */
+    }
+
+    .menu-shortcut {
+        font-size: 13px; /* Tăng kích thước chữ */
+        color: #b0b3b8;
+    }
+
+    .logout {
+        color: #f02849;
+    }
+
+    .user-footer {
+        text-align: center;
+        font-size: 13px; /* Tăng kích thước chữ */
+        color: #b0b3b8;
+        padding: 12px 0; /* Tăng padding */
+        border-top: 1px solid #3a3b3c;
+    }
+
+</style>
+
+
+<!-- Phần JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const userIconBtn = document.getElementById('userIconBtn');
+        const userPopup = document.getElementById('userPopup');
+        const loginItem = document.getElementById('loginItem');
+        const registerItem = document.getElementById('registerItem');
+        const settingsItem = document.getElementById('settingsItem');
+        const orderHistoryItem = document.getElementById('orderHistoryItem');
+        const changePasswordItem = document.getElementById('changePasswordItem');
+        const logoutItem = document.getElementById('logoutItem');
+        const userNameDisplay = document.getElementById('userNameDisplay');
+
+        // Giả định trạng thái đăng nhập, có thể thay thế bằng API thực tế
+        const isLoggedIn = @User.Identity.IsAuthenticated.ToString().ToLower(); // Lấy trạng thái từ server
+
+        userIconBtn.addEventListener('click', function () {
+            // Hiển thị popup
+            userPopup.classList.toggle('d-none');
+
+            // Kiểm tra trạng thái đăng nhập
+            if (isLoggedIn) {
+                // Ẩn các nút đăng nhập và đăng ký, hiển thị các menu người dùng
+                loginItem.classList.add('d-none');
+                registerItem.classList.add('d-none');
+                settingsItem.classList.remove('d-none');
+                orderHistoryItem.classList.remove('d-none');
+                changePasswordItem.classList.remove('d-none');
+                logoutItem.classList.remove('d-none');
+
+                // Cập nhật tên người dùng
+                userNameDisplay.textContent = 'Xin chào, ' + '@User.GetUserData()?.DisplayName';
+            } else {
+                // Ẩn các menu người dùng, hiển thị nút đăng nhập và đăng ký
+                loginItem.classList.remove('d-none');
+                registerItem.classList.remove('d-none');
+                settingsItem.classList.add('d-none');
+                orderHistoryItem.classList.add('d-none');
+                changePasswordItem.classList.add('d-none');
+                logoutItem.classList.add('d-none');
+                userNameDisplay.textContent = 'Xin chào!';
+            }
+        });
+
+        // Đóng popup nếu click bên ngoài
+        document.addEventListener('click', function (event) {
+            if (!userIconBtn.contains(event.target) && !userPopup.contains(event.target)) {
+                userPopup.classList.add('d-none');
+            }
+        });
+    });
+
+</script>

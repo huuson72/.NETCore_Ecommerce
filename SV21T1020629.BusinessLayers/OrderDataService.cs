@@ -29,40 +29,154 @@ namespace SV21T1020629.BusinessLayers
         /// <summary>
         /// Lấy thông tin của 1 đơn hàng
         /// </summary>
-        public static Order? GetOrder(int orderID)
+        //public static Order? GetOrder(int orderID)
+        //{
+        //    return orderDB.Get(orderID);
+        //}
+        public static Order? GetOrder(int orderId)
         {
-            return orderDB.Get(orderID);
+            Console.WriteLine($"OrderDataService: Fetching Order with ID: {orderId}");
+            var order = orderDB.Get(orderId);
+            if (order == null)
+            {
+                Console.WriteLine("OrderDataService: No order found!");
+            }
+            return order;
         }
+
         /// <summary>
         /// Khởi tạo 1 đơn hàng mới (tạo đơn hàng mới ở trạng thái Init).
         /// Hàm trả về mã của đơn hàng được tạo mới
         /// </summary>
-        public static int InitOrder(int employeeID, int customerID,
-
-        string deliveryProvince, string deliveryAddress,
-        IEnumerable<OrderDetail> details)
-
+        /// 
+        public static int InitOrder(int? employeeID, int customerID, string deliveryProvince, string deliveryAddress, IEnumerable<OrderDetail> details)
         {
-            if (details.Count() == 0)
+            // Kiểm tra dữ liệu đầu vào
+            if (details == null || !details.Any() || string.IsNullOrWhiteSpace(deliveryProvince) || string.IsNullOrWhiteSpace(deliveryAddress))
                 return 0;
-            Order data = new Order()
+
+            try
             {
-                EmployeeID = employeeID,
-                CustomerID = customerID,
-                DeliveryProvince = deliveryProvince,
-                DeliveryAddress = deliveryAddress
-            };
-            int orderID = orderDB.Add(data);
-            if (orderID > 0)
-            {
-                foreach (var item in details)
+                // Tạo đối tượng đơn hàng
+                Order data = new Order()
                 {
-                    orderDB.SaveDetail(orderID, item.ProductID, item.Quantity, item.SalePrice);
+                    EmployeeID = employeeID > 0 ? employeeID : null, // Sử dụng NULL nếu EmployeeID không hợp lệ
+                    CustomerID = customerID,
+                    DeliveryProvince = deliveryProvince,
+                    DeliveryAddress = deliveryAddress,
+                    OrderTime = DateTime.Now,
+                    Status = 1 // Trạng thái mặc định: Đơn hàng vừa gửi
+                };
+
+                // Thêm đơn hàng vào cơ sở dữ liệu
+                int orderID = orderDB.Add(data);
+
+                // Nếu tạo đơn hàng thành công, thêm chi tiết
+                if (orderID > 0)
+                {
+                    foreach (var item in details)
+                    {
+                        try
+                        {
+                            orderDB.SaveDetail(orderID, item.ProductID, item.Quantity, item.SalePrice);
+                        }
+                        catch (Exception detailEx)
+                        {
+                           
+                            return -1; // Có lỗi khi lưu chi tiết
+                        }
+                    }
+                    return orderID;
                 }
-                return orderID;
+
+                return -1; // Lỗi khi thêm đơn hàng
             }
-            return 0;
+            catch (Exception ex)
+            {
+               
+                return -1;
+            }
         }
+
+
+
+        public static int InitOrderCustomer(int? employeeID, int customerID, string deliveryProvince, string deliveryAddress, IEnumerable<OrderDetail> details, string phoneNumber)
+        {
+            // Kiểm tra dữ liệu đầu vào
+            if (details == null || !details.Any() || string.IsNullOrWhiteSpace(deliveryProvince) || string.IsNullOrWhiteSpace(deliveryAddress))
+                return 0;
+
+            try
+            {
+                // Tạo đối tượng đơn hàng
+                Order data = new Order()
+                {
+                    EmployeeID = employeeID > 0 ? employeeID : null, // Sử dụng NULL nếu EmployeeID không hợp lệ
+                    CustomerID = customerID,
+                    DeliveryProvince = deliveryProvince,
+                    DeliveryAddress = deliveryAddress,
+                    PhoneNumber = phoneNumber, // Gán số điện thoại vào đối tượng Order
+                    OrderTime = DateTime.Now,
+                    Status = 1 // Trạng thái mặc định: Đơn hàng vừa gửi
+                };
+
+                // Thêm đơn hàng vào cơ sở dữ liệu
+                int orderID = orderDB.AddOrderCustomer(data);
+
+                // Nếu tạo đơn hàng thành công, thêm chi tiết
+                if (orderID > 0)
+                {
+                    foreach (var item in details)
+                    {
+                        try
+                        {
+                            orderDB.SaveDetail(orderID, item.ProductID, item.Quantity, item.SalePrice);
+                        }
+                        catch (Exception detailEx)
+                        {
+                            return -1; // Có lỗi khi lưu chi tiết
+                        }
+                    }
+                    return orderID;
+                }
+
+                return -1; // Lỗi khi thêm đơn hàng
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+
+
+
+        //public static int InitOrder(int employeeID, int customerID,
+
+        //string deliveryProvince, string deliveryAddress,
+        //IEnumerable<OrderDetail> details)
+
+        //{
+        //    if (details.Count() == 0)
+        //        return 0;
+        //    Order data = new Order()
+        //    {
+        //        //EmployeeID = employeeID,
+        //        EmployeeID = employeeID > 0 ? employeeID : (int?)null, // Sử dụng NULL nếu EmployeeID = 0
+        //        CustomerID = customerID,
+        //        DeliveryProvince = deliveryProvince,
+        //        DeliveryAddress = deliveryAddress
+        //    };
+        //    int orderID = orderDB.Add(data);
+        //    if (orderID > 0)
+        //    {
+        //        foreach (var item in details)
+        //        {
+        //            orderDB.SaveDetail(orderID, item.ProductID, item.Quantity, item.SalePrice);
+        //        }
+        //        return orderID;
+        //    }
+        //    return 0;
+        //}
         /// <summary>
         /// Hủy bỏ đơn hàng
         /// </summary>
@@ -168,6 +282,7 @@ namespace SV21T1020629.BusinessLayers
         {
             return orderDB.ListDetails(orderID).ToList();
         }
+
         /// <summary>
         /// Lấy thông tin của 1 mặt hàng được bán trong đơn hàng
         /// </summary>
@@ -175,6 +290,9 @@ namespace SV21T1020629.BusinessLayers
         {
             return orderDB.GetDetail(orderID, productID);
         }
+      
+
+
         /// <summary>
         /// Lưu thông tin chi tiết của đơn hàng (thêm mặt hàng được bán trong đơn hàng)
         /// theo nguyên tắc:
@@ -207,6 +325,17 @@ namespace SV21T1020629.BusinessLayers
                 return orderDB.DeleteDetail(orderID, productID);
             }
             return false;
+        }
+        public static List<Order> GetOrdersByCustomerId(int customerId)
+        {
+            // Kiểm tra giá trị hợp lệ của CustomerID
+            if (customerId <= 0)
+            {
+                return new List<Order>(); // Trả về danh sách rỗng nếu CustomerID không hợp lệ
+            }
+
+            // Gọi hàm từ DAL để lấy danh sách đơn hàng
+            return orderDB.GetOrdersByCustomerId(customerId);
         }
 
     }
